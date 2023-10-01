@@ -7,15 +7,30 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E00D2D992AC809ED0037AB1F /* UIFont Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E00D2D982AC809ED0037AB1F /* UIFont Extension.swift */; };
+		E00D2D9B2AC80BE10037AB1F /* CALayerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E00D2D9A2AC80BE10037AB1F /* CALayerExtension.swift */; };
+		E00D2D9D2AC813170037AB1F /* CarsListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E00D2D9C2AC813170037AB1F /* CarsListViewController.swift */; };
+		E00D2DA02AC8141E0037AB1F /* CarsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E00D2D9E2AC8141E0037AB1F /* CarsTableViewCell.swift */; };
+		E00D2DA12AC8141E0037AB1F /* CarsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E00D2D9F2AC8141E0037AB1F /* CarsTableViewCell.xib */; };
+		E00D2DA32AC823A90037AB1F /* TableViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E00D2DA22AC823A90037AB1F /* TableViewExtension.swift */; };
 		E056082B2AC41947008ED041 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E056082A2AC41947008ED041 /* AppDelegate.swift */; };
 		E056082D2AC41947008ED041 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E056082C2AC41947008ED041 /* SceneDelegate.swift */; };
-		E056082F2AC41947008ED041 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E056082E2AC41947008ED041 /* ViewController.swift */; };
+		E056082F2AC41947008ED041 /* CarsDashboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E056082E2AC41947008ED041 /* CarsDashboardViewController.swift */; };
 		E05608322AC41947008ED041 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E05608302AC41947008ED041 /* Main.storyboard */; };
 		E05608342AC41947008ED041 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E05608332AC41947008ED041 /* Assets.xcassets */; };
 		E05608372AC41947008ED041 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E05608352AC41947008ED041 /* LaunchScreen.storyboard */; };
 		E05608422AC41948008ED041 /* Cars_HubTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E05608412AC41948008ED041 /* Cars_HubTests.swift */; };
 		E056084C2AC41948008ED041 /* Cars_HubUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E056084B2AC41948008ED041 /* Cars_HubUITests.swift */; };
 		E056084E2AC41948008ED041 /* Cars_HubUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E056084D2AC41948008ED041 /* Cars_HubUITestsLaunchTests.swift */; };
+		E0A45D5C2AC41AAE007F4BA8 /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0A45D5B2AC41AAE007F4BA8 /* DataManager.swift */; };
+		E0A45D5E2AC41AD0007F4BA8 /* DateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0A45D5D2AC41AD0007F4BA8 /* DateExtension.swift */; };
+		E0A45D602AC41ADF007F4BA8 /* UIColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0A45D5F2AC41ADF007F4BA8 /* UIColorExtension.swift */; };
+		E0A45D622AC41AED007F4BA8 /* UIImageViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0A45D612AC41AED007F4BA8 /* UIImageViewExtension.swift */; };
+		E0A45D642AC41AFD007F4BA8 /* UIViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0A45D632AC41AFD007F4BA8 /* UIViewControllerExtension.swift */; };
+		E0A45D662AC41B59007F4BA8 /* AlertManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0A45D652AC41B59007F4BA8 /* AlertManager.swift */; };
+		E0A45D682AC41BB2007F4BA8 /* WebServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0A45D672AC41BB2007F4BA8 /* WebServices.swift */; };
+		E0A45D6A2AC41C39007F4BA8 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0A45D692AC41C39007F4BA8 /* Coordinator.swift */; };
+		E0A45D6D2AC41F1A007F4BA8 /* CarMakesResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0A45D6C2AC41F1A007F4BA8 /* CarMakesResponse.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,10 +51,16 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		E00D2D982AC809ED0037AB1F /* UIFont Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont Extension.swift"; sourceTree = "<group>"; };
+		E00D2D9A2AC80BE10037AB1F /* CALayerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CALayerExtension.swift; sourceTree = "<group>"; };
+		E00D2D9C2AC813170037AB1F /* CarsListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarsListViewController.swift; sourceTree = "<group>"; };
+		E00D2D9E2AC8141E0037AB1F /* CarsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarsTableViewCell.swift; sourceTree = "<group>"; };
+		E00D2D9F2AC8141E0037AB1F /* CarsTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CarsTableViewCell.xib; sourceTree = "<group>"; };
+		E00D2DA22AC823A90037AB1F /* TableViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewExtension.swift; sourceTree = "<group>"; };
 		E05608272AC41947008ED041 /* Cars Hub.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Cars Hub.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E056082A2AC41947008ED041 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E056082C2AC41947008ED041 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		E056082E2AC41947008ED041 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		E056082E2AC41947008ED041 /* CarsDashboardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarsDashboardViewController.swift; sourceTree = "<group>"; };
 		E05608312AC41947008ED041 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		E05608332AC41947008ED041 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E05608362AC41947008ED041 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -49,6 +70,15 @@
 		E05608472AC41948008ED041 /* Cars HubUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Cars HubUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E056084B2AC41948008ED041 /* Cars_HubUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cars_HubUITests.swift; sourceTree = "<group>"; };
 		E056084D2AC41948008ED041 /* Cars_HubUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cars_HubUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		E0A45D5B2AC41AAE007F4BA8 /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
+		E0A45D5D2AC41AD0007F4BA8 /* DateExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateExtension.swift; sourceTree = "<group>"; };
+		E0A45D5F2AC41ADF007F4BA8 /* UIColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColorExtension.swift; sourceTree = "<group>"; };
+		E0A45D612AC41AED007F4BA8 /* UIImageViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageViewExtension.swift; sourceTree = "<group>"; };
+		E0A45D632AC41AFD007F4BA8 /* UIViewControllerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtension.swift; sourceTree = "<group>"; };
+		E0A45D652AC41B59007F4BA8 /* AlertManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertManager.swift; sourceTree = "<group>"; };
+		E0A45D672AC41BB2007F4BA8 /* WebServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebServices.swift; sourceTree = "<group>"; };
+		E0A45D692AC41C39007F4BA8 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
+		E0A45D6C2AC41F1A007F4BA8 /* CarMakesResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarMakesResponse.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,9 +129,14 @@
 		E05608292AC41947008ED041 /* Cars Hub */ = {
 			isa = PBXGroup;
 			children = (
+				E0A45D592AC419F8007F4BA8 /* Models */,
+				E056085C2AC41966008ED041 /* Helpers */,
+				E056085B2AC4195F008ED041 /* Tools */,
+				E0A45D6B2AC41D2D007F4BA8 /* CustomCells */,
+				E056085A2AC41955008ED041 /* ViewControllers */,
+				E056085D2AC4196B008ED041 /* ViewModel */,
 				E056082A2AC41947008ED041 /* AppDelegate.swift */,
 				E056082C2AC41947008ED041 /* SceneDelegate.swift */,
-				E056082E2AC41947008ED041 /* ViewController.swift */,
 				E05608302AC41947008ED041 /* Main.storyboard */,
 				E05608332AC41947008ED041 /* Assets.xcassets */,
 				E05608352AC41947008ED041 /* LaunchScreen.storyboard */,
@@ -125,6 +160,96 @@
 				E056084D2AC41948008ED041 /* Cars_HubUITestsLaunchTests.swift */,
 			);
 			path = "Cars HubUITests";
+			sourceTree = "<group>";
+		};
+		E056085A2AC41955008ED041 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				E056082E2AC41947008ED041 /* CarsDashboardViewController.swift */,
+				E00D2D9C2AC813170037AB1F /* CarsListViewController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		E056085B2AC4195F008ED041 /* Tools */ = {
+			isa = PBXGroup;
+			children = (
+				E0A45D572AC419D7007F4BA8 /* Coordinator */,
+				E0A45D562AC419CA007F4BA8 /* Web Services */,
+			);
+			path = Tools;
+			sourceTree = "<group>";
+		};
+		E056085C2AC41966008ED041 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				E0A45D5A2AC41A88007F4BA8 /* DataManager */,
+				E0A45D582AC419E1007F4BA8 /* Extensions */,
+				E0A45D652AC41B59007F4BA8 /* AlertManager.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		E056085D2AC4196B008ED041 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		E0A45D562AC419CA007F4BA8 /* Web Services */ = {
+			isa = PBXGroup;
+			children = (
+				E0A45D672AC41BB2007F4BA8 /* WebServices.swift */,
+			);
+			path = "Web Services";
+			sourceTree = "<group>";
+		};
+		E0A45D572AC419D7007F4BA8 /* Coordinator */ = {
+			isa = PBXGroup;
+			children = (
+				E0A45D692AC41C39007F4BA8 /* Coordinator.swift */,
+			);
+			path = Coordinator;
+			sourceTree = "<group>";
+		};
+		E0A45D582AC419E1007F4BA8 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				E0A45D5D2AC41AD0007F4BA8 /* DateExtension.swift */,
+				E0A45D5F2AC41ADF007F4BA8 /* UIColorExtension.swift */,
+				E0A45D612AC41AED007F4BA8 /* UIImageViewExtension.swift */,
+				E0A45D632AC41AFD007F4BA8 /* UIViewControllerExtension.swift */,
+				E00D2D982AC809ED0037AB1F /* UIFont Extension.swift */,
+				E00D2D9A2AC80BE10037AB1F /* CALayerExtension.swift */,
+				E00D2DA22AC823A90037AB1F /* TableViewExtension.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		E0A45D592AC419F8007F4BA8 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				E0A45D6C2AC41F1A007F4BA8 /* CarMakesResponse.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		E0A45D5A2AC41A88007F4BA8 /* DataManager */ = {
+			isa = PBXGroup;
+			children = (
+				E0A45D5B2AC41AAE007F4BA8 /* DataManager.swift */,
+			);
+			path = DataManager;
+			sourceTree = "<group>";
+		};
+		E0A45D6B2AC41D2D007F4BA8 /* CustomCells */ = {
+			isa = PBXGroup;
+			children = (
+				E00D2D9E2AC8141E0037AB1F /* CarsTableViewCell.swift */,
+				E00D2D9F2AC8141E0037AB1F /* CarsTableViewCell.xib */,
+			);
+			path = CustomCells;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -233,6 +358,7 @@
 			files = (
 				E05608372AC41947008ED041 /* LaunchScreen.storyboard in Resources */,
 				E05608342AC41947008ED041 /* Assets.xcassets in Resources */,
+				E00D2DA12AC8141E0037AB1F /* CarsTableViewCell.xib in Resources */,
 				E05608322AC41947008ED041 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -258,9 +384,23 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E056082F2AC41947008ED041 /* ViewController.swift in Sources */,
+				E056082F2AC41947008ED041 /* CarsDashboardViewController.swift in Sources */,
+				E00D2D9D2AC813170037AB1F /* CarsListViewController.swift in Sources */,
+				E0A45D622AC41AED007F4BA8 /* UIImageViewExtension.swift in Sources */,
+				E0A45D5E2AC41AD0007F4BA8 /* DateExtension.swift in Sources */,
+				E0A45D5C2AC41AAE007F4BA8 /* DataManager.swift in Sources */,
+				E0A45D642AC41AFD007F4BA8 /* UIViewControllerExtension.swift in Sources */,
 				E056082B2AC41947008ED041 /* AppDelegate.swift in Sources */,
+				E00D2D992AC809ED0037AB1F /* UIFont Extension.swift in Sources */,
+				E0A45D6A2AC41C39007F4BA8 /* Coordinator.swift in Sources */,
+				E0A45D682AC41BB2007F4BA8 /* WebServices.swift in Sources */,
+				E00D2D9B2AC80BE10037AB1F /* CALayerExtension.swift in Sources */,
 				E056082D2AC41947008ED041 /* SceneDelegate.swift in Sources */,
+				E0A45D602AC41ADF007F4BA8 /* UIColorExtension.swift in Sources */,
+				E00D2DA32AC823A90037AB1F /* TableViewExtension.swift in Sources */,
+				E0A45D662AC41B59007F4BA8 /* AlertManager.swift in Sources */,
+				E00D2DA02AC8141E0037AB1F /* CarsTableViewCell.swift in Sources */,
+				E0A45D6D2AC41F1A007F4BA8 /* CarMakesResponse.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -440,8 +580,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = NA979M4P72;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Cars Hub/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -449,6 +591,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -456,6 +599,7 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "test.Cars-Hub";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -467,8 +611,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = NA979M4P72;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Cars Hub/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -476,6 +622,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -483,6 +630,7 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "test.Cars-Hub";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

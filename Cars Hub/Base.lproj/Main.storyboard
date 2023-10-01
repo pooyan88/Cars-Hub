@@ -1,24 +1,111 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="22154" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22130"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Cars Dashboard View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="CarsDashboardViewController" id="BYZ-38-t0r" customClass="CarsDashboardViewController" customModule="Cars_Hub" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" xcode11CocoaTouchSystemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OHN-Xz-fRU">
+                                <rect key="frame" x="16" y="69" width="361" height="60"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="iy2-NC-8ic"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ukx-Qh-9G7">
+                                <rect key="frame" x="121.66666666666669" y="149" width="150" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="7Z5-sb-sW9"/>
+                                    <constraint firstAttribute="width" constant="150" id="9l3-IR-wLs"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Button"/>
+                                <connections>
+                                    <action selector="searchButtonAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="gjq-eO-2a8"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="OHN-Xz-fRU" secondAttribute="trailing" constant="16" id="437-CQ-PDR"/>
+                            <constraint firstItem="Ukx-Qh-9G7" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="4L4-bW-LOF"/>
+                            <constraint firstItem="OHN-Xz-fRU" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="MJX-f5-XA1"/>
+                            <constraint firstItem="Ukx-Qh-9G7" firstAttribute="top" secondItem="OHN-Xz-fRU" secondAttribute="bottom" constant="20" id="TrQ-h7-Dpm"/>
+                            <constraint firstItem="OHN-Xz-fRU" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="10" id="eTe-iv-dke"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="descriptionLabel" destination="OHN-Xz-fRU" id="Iyw-uE-zmV"/>
+                        <outlet property="searchButton" destination="Ukx-Qh-9G7" id="iAP-5H-1Xn"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="138" y="5"/>
+        </scene>
+        <!--Cars List View Controller-->
+        <scene sceneID="5RS-IR-PMa">
+            <objects>
+                <viewController storyboardIdentifier="CarsListViewController" id="pD9-g9-k0L" customClass="CarsListViewController" customModule="Cars_Hub" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="fCA-39-vco">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="iA2-Ag-z0X">
+                                <rect key="frame" x="0.0" y="109" width="393" height="709"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </tableView>
+                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="80e-KX-3ac">
+                                <rect key="frame" x="0.0" y="59" width="393" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="DDw-rw-mOg"/>
+                                </constraints>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="pD9-g9-k0L" id="7lo-IB-DtG"/>
+                                </connections>
+                            </searchBar>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="sio-rG-OAO"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="80e-KX-3ac" firstAttribute="leading" secondItem="sio-rG-OAO" secondAttribute="leading" id="7PH-uw-PF4"/>
+                            <constraint firstItem="sio-rG-OAO" firstAttribute="trailing" secondItem="iA2-Ag-z0X" secondAttribute="trailing" id="9Uv-sG-aJ6"/>
+                            <constraint firstItem="sio-rG-OAO" firstAttribute="bottom" secondItem="iA2-Ag-z0X" secondAttribute="bottom" id="NC9-HR-bMd"/>
+                            <constraint firstItem="iA2-Ag-z0X" firstAttribute="leading" secondItem="sio-rG-OAO" secondAttribute="leading" id="NMd-aV-Lfd"/>
+                            <constraint firstItem="80e-KX-3ac" firstAttribute="trailing" secondItem="sio-rG-OAO" secondAttribute="trailing" id="RaJ-7A-TdF"/>
+                            <constraint firstItem="80e-KX-3ac" firstAttribute="top" secondItem="sio-rG-OAO" secondAttribute="top" id="RmN-zE-GlS"/>
+                            <constraint firstItem="iA2-Ag-z0X" firstAttribute="top" secondItem="80e-KX-3ac" secondAttribute="bottom" id="cJM-RM-K0s"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="searchBar" destination="80e-KX-3ac" id="OK6-94-zCy"/>
+                        <outlet property="tableView" destination="iA2-Ag-z0X" id="xlw-lm-n0a"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4eN-sR-1gU" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="774.80916030534343" y="4.9295774647887329"/>
         </scene>
     </scenes>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
 </document>
