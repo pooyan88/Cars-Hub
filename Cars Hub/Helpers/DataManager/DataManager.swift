@@ -11,14 +11,15 @@ class DataManager {
     
     static let shared = DataManager()
     
-     func saveCars(data: [CarMakesResponse.SearchResult]) {
-        let encodedWeatherConditions = try? JSONEncoder().encode(data)
-        UserDefaults.standard.set(encodedWeatherConditions, forKey: "cars")
+    
+    func saveCars(cars: [CarsData]) {
+        let encodedData = try? JSONEncoder().encode(cars)
+        UserDefaults.standard.set(encodedData, forKey: "cars")
     }
     
-     func loadCars() -> [CarMakesResponse.SearchResult]{
+    func loadCars()-> [CarsData] {
         if let data = UserDefaults.standard.data(forKey: "cars") {
-            if let decodedData = try? JSONDecoder().decode([CarMakesResponse.SearchResult].self, from: data) {
+            if let decodedData = try? JSONDecoder().decode([CarsData].self, from: data) {
                 return decodedData
             }
         }

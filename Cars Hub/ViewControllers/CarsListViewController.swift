@@ -7,13 +7,18 @@
 
 import UIKit
 
+protocol CarsListViewControllerDelegate {
+    func passCarDetails(car: CarsData)
+}
+
 class CarsListViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var searchBar: UISearchBar!
     
+    var delegate: CarsListViewControllerDelegate?
     var coordinator: MainCoordinator?
-    var carMakes: [CarMakesResponse.SearchResult] = [] {
+    var carsData: [CarsData] = [] {
         didSet {
             if tableView != nil {
                 tableView.reloadData()
@@ -21,7 +26,7 @@ class CarsListViewController: UIViewController {
         }
     }
     
-    var filteredCarMakes: [CarMakesResponse.SearchResult] = [] {
+    var filteredCarMakes: [CarsData] = [] {
         didSet {
             if tableView != nil {
                 tableView.reloadData()
@@ -41,14 +46,9 @@ extension CarsListViewController {
     
     private func setupView() {
         setupTableView()
-        setupNavigationBar()
         view.layer.createGradientLayer(view: view)
-    }
-    
-    private func setupNavigationBar() {
-        let textAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
-        navigationController?.navigationBar.titleTextAttributes = textAttributes
-        navigationController?.setNavigationBarHidden(true, animated: true)
+        navigationItem.largeTitleDisplayMode = .never
+        UITextField.appearance(whenContainedInInstancesOf: [UISearchBar.self]).textColor = UIColor.white
     }
     
     private func setupSearchBar() {
@@ -56,7 +56,7 @@ extension CarsListViewController {
         searchBar.delegate = self
         searchBar.layer.cornerRadius = 10
         searchBar.clipsToBounds = true
-        searchBar.searchTextField.backgroundColor = UIColor(hex:"#232248")
+        searchBar.searchTextField.textColor = .white
     }
     
     private func setupTableView() {
@@ -76,13 +76,18 @@ extension CarsListViewController {
 extension CarsListViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return filteredCarMakes.isEmpty ? carMakes.count : filteredCarMakes.count
+        return filteredCarMakes.isEmpty ? carsData.count : filteredCarMakes.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: CarsTableViewCell.identifier, for: indexPath) as! CarsTableViewCell
-        cell.setup(data: filteredCarMakes.isEmpty ? carMakes[indexPath.row] : filteredCarMakes[indexPath.row])
+        cell.setup(data: filteredCarMakes.isEmpty ? carsData[indexPath.row] : filteredCarMakes[indexPath.row])
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        delegate?.passCarDetails(car: carsData[indexPath.row])
+        coordinator?.popViewController(animated: true)
     }
 }
 
@@ -90,6 +95,6 @@ extension CarsListViewController: UITableViewDelegate, UITableViewDataSource {
 extension CarsListViewController: UISearchBarDelegate {
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        filteredCarMakes = carMakes.filter({($0.makeName?.lowercased() ?? "").contains(searchText.lowercased())})
+        filteredCarMakes = carsData.filter({($0.companyName?.lowercased() ?? "" + "-" + ($0.carName?.lowercased() ?? "?")).contains(searchText.lowercased())})
     }
 }

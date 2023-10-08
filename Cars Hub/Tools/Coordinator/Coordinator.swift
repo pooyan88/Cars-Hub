@@ -24,11 +24,15 @@ class MainCoordinator: Coordinator {
         navigationController.pushViewController(initialVC, animated: false)
     }
     
-    func gotoCarsListViewController(with carMakes: [CarMakesResponse.SearchResult]) {
+    func gotoCarsListViewController(with carsData: [CarsData], delegate: CarsListViewControllerDelegate) {
         let vc: CarsListViewController = CarsListViewController.instantiate(appStoryboard: .main)
         vc.coordinator = self
-        vc.carMakes = carMakes
-        navigationController.navigationBar.prefersLargeTitles = true
-        navigationController.pushViewController(vc, animated: false)
+        vc.carsData = carsData
+        vc.delegate = delegate
+        navigationController.pushViewController(vc, animated: true)
+    }
+    
+    func popViewController(animated: Bool = true) {
+        navigationController.popViewController(animated: animated)
     }
 }

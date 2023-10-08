@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 56;
+	objectVersion = 60;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -13,6 +13,10 @@
 		E00D2DA02AC8141E0037AB1F /* CarsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E00D2D9E2AC8141E0037AB1F /* CarsTableViewCell.swift */; };
 		E00D2DA12AC8141E0037AB1F /* CarsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E00D2D9F2AC8141E0037AB1F /* CarsTableViewCell.xib */; };
 		E00D2DA32AC823A90037AB1F /* TableViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E00D2DA22AC823A90037AB1F /* TableViewExtension.swift */; };
+		E03542A02AD2957F002B9286 /* CalculateHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = E035429F2AD2957F002B9286 /* CalculateHelper.swift */; };
+		E03542A22AD2AD90002B9286 /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E03542A12AD2AD90002B9286 /* StringExtension.swift */; };
+		E03542A42AD2B769002B9286 /* Int Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E03542A32AD2B769002B9286 /* Int Extension.swift */; };
+		E04F31992AC9A04400959600 /* CarsDashboardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E04F31982AC9A04400959600 /* CarsDashboardViewModel.swift */; };
 		E056082B2AC41947008ED041 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E056082A2AC41947008ED041 /* AppDelegate.swift */; };
 		E056082D2AC41947008ED041 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E056082C2AC41947008ED041 /* SceneDelegate.swift */; };
 		E056082F2AC41947008ED041 /* CarsDashboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E056082E2AC41947008ED041 /* CarsDashboardViewController.swift */; };
@@ -30,7 +34,11 @@
 		E0A45D662AC41B59007F4BA8 /* AlertManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0A45D652AC41B59007F4BA8 /* AlertManager.swift */; };
 		E0A45D682AC41BB2007F4BA8 /* WebServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0A45D672AC41BB2007F4BA8 /* WebServices.swift */; };
 		E0A45D6A2AC41C39007F4BA8 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0A45D692AC41C39007F4BA8 /* Coordinator.swift */; };
-		E0A45D6D2AC41F1A007F4BA8 /* CarMakesResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0A45D6C2AC41F1A007F4BA8 /* CarMakesResponse.swift */; };
+		E0A45D6D2AC41F1A007F4BA8 /* CarsData.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0A45D6C2AC41F1A007F4BA8 /* CarsData.swift */; };
+		E0EB03522AD1378400B103BC /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = E0EB03512AD1378400B103BC /* SDWebImage */; };
+		E0EB03542AD1378400B103BC /* SDWebImageMapKit in Frameworks */ = {isa = PBXBuildFile; productRef = E0EB03532AD1378400B103BC /* SDWebImageMapKit */; };
+		E0EB03592AD14D3600B103BC /* CarDetailsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0EB03572AD14D3600B103BC /* CarDetailsTableViewCell.swift */; };
+		E0EB035A2AD14D3600B103BC /* CarDetailsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E0EB03582AD14D3600B103BC /* CarDetailsTableViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,6 +65,10 @@
 		E00D2D9E2AC8141E0037AB1F /* CarsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarsTableViewCell.swift; sourceTree = "<group>"; };
 		E00D2D9F2AC8141E0037AB1F /* CarsTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CarsTableViewCell.xib; sourceTree = "<group>"; };
 		E00D2DA22AC823A90037AB1F /* TableViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewExtension.swift; sourceTree = "<group>"; };
+		E035429F2AD2957F002B9286 /* CalculateHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculateHelper.swift; sourceTree = "<group>"; };
+		E03542A12AD2AD90002B9286 /* StringExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtension.swift; sourceTree = "<group>"; };
+		E03542A32AD2B769002B9286 /* Int Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Int Extension.swift"; sourceTree = "<group>"; };
+		E04F31982AC9A04400959600 /* CarsDashboardViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarsDashboardViewModel.swift; sourceTree = "<group>"; };
 		E05608272AC41947008ED041 /* Cars Hub.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Cars Hub.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E056082A2AC41947008ED041 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E056082C2AC41947008ED041 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -78,7 +90,9 @@
 		E0A45D652AC41B59007F4BA8 /* AlertManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertManager.swift; sourceTree = "<group>"; };
 		E0A45D672AC41BB2007F4BA8 /* WebServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebServices.swift; sourceTree = "<group>"; };
 		E0A45D692AC41C39007F4BA8 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
-		E0A45D6C2AC41F1A007F4BA8 /* CarMakesResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarMakesResponse.swift; sourceTree = "<group>"; };
+		E0A45D6C2AC41F1A007F4BA8 /* CarsData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarsData.swift; sourceTree = "<group>"; };
+		E0EB03572AD14D3600B103BC /* CarDetailsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarDetailsTableViewCell.swift; sourceTree = "<group>"; };
+		E0EB03582AD14D3600B103BC /* CarDetailsTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CarDetailsTableViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,6 +100,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E0EB03542AD1378400B103BC /* SDWebImageMapKit in Frameworks */,
+				E0EB03522AD1378400B103BC /* SDWebImage in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -106,6 +122,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		E04F31972AC9A02A00959600 /* CarsDashboardViewController */ = {
+			isa = PBXGroup;
+			children = (
+				E056082E2AC41947008ED041 /* CarsDashboardViewController.swift */,
+				E04F31982AC9A04400959600 /* CarsDashboardViewModel.swift */,
+			);
+			path = CarsDashboardViewController;
+			sourceTree = "<group>";
+		};
 		E056081E2AC41947008ED041 = {
 			isa = PBXGroup;
 			children = (
@@ -134,7 +159,6 @@
 				E056085B2AC4195F008ED041 /* Tools */,
 				E0A45D6B2AC41D2D007F4BA8 /* CustomCells */,
 				E056085A2AC41955008ED041 /* ViewControllers */,
-				E056085D2AC4196B008ED041 /* ViewModel */,
 				E056082A2AC41947008ED041 /* AppDelegate.swift */,
 				E056082C2AC41947008ED041 /* SceneDelegate.swift */,
 				E05608302AC41947008ED041 /* Main.storyboard */,
@@ -165,7 +189,7 @@
 		E056085A2AC41955008ED041 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				E056082E2AC41947008ED041 /* CarsDashboardViewController.swift */,
+				E04F31972AC9A02A00959600 /* CarsDashboardViewController */,
 				E00D2D9C2AC813170037AB1F /* CarsListViewController.swift */,
 			);
 			path = ViewControllers;
@@ -186,15 +210,9 @@
 				E0A45D5A2AC41A88007F4BA8 /* DataManager */,
 				E0A45D582AC419E1007F4BA8 /* Extensions */,
 				E0A45D652AC41B59007F4BA8 /* AlertManager.swift */,
+				E035429F2AD2957F002B9286 /* CalculateHelper.swift */,
 			);
 			path = Helpers;
-			sourceTree = "<group>";
-		};
-		E056085D2AC4196B008ED041 /* ViewModel */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = ViewModel;
 			sourceTree = "<group>";
 		};
 		E0A45D562AC419CA007F4BA8 /* Web Services */ = {
@@ -223,6 +241,8 @@
 				E00D2D982AC809ED0037AB1F /* UIFont Extension.swift */,
 				E00D2D9A2AC80BE10037AB1F /* CALayerExtension.swift */,
 				E00D2DA22AC823A90037AB1F /* TableViewExtension.swift */,
+				E03542A12AD2AD90002B9286 /* StringExtension.swift */,
+				E03542A32AD2B769002B9286 /* Int Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -230,7 +250,7 @@
 		E0A45D592AC419F8007F4BA8 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				E0A45D6C2AC41F1A007F4BA8 /* CarMakesResponse.swift */,
+				E0A45D6C2AC41F1A007F4BA8 /* CarsData.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -246,10 +266,28 @@
 		E0A45D6B2AC41D2D007F4BA8 /* CustomCells */ = {
 			isa = PBXGroup;
 			children = (
+				E0EB03562AD14D1400B103BC /* CarDetailsTableViewCell */,
+				E0EB03552AD14D0200B103BC /* CarsListTableViewCell */,
+			);
+			path = CustomCells;
+			sourceTree = "<group>";
+		};
+		E0EB03552AD14D0200B103BC /* CarsListTableViewCell */ = {
+			isa = PBXGroup;
+			children = (
 				E00D2D9E2AC8141E0037AB1F /* CarsTableViewCell.swift */,
 				E00D2D9F2AC8141E0037AB1F /* CarsTableViewCell.xib */,
 			);
-			path = CustomCells;
+			path = CarsListTableViewCell;
+			sourceTree = "<group>";
+		};
+		E0EB03562AD14D1400B103BC /* CarDetailsTableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				E0EB03572AD14D3600B103BC /* CarDetailsTableViewCell.swift */,
+				E0EB03582AD14D3600B103BC /* CarDetailsTableViewCell.xib */,
+			);
+			path = CarDetailsTableViewCell;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -268,6 +306,10 @@
 			dependencies = (
 			);
 			name = "Cars Hub";
+			packageProductDependencies = (
+				E0EB03512AD1378400B103BC /* SDWebImage */,
+				E0EB03532AD1378400B103BC /* SDWebImageMapKit */,
+			);
 			productName = "Cars Hub";
 			productReference = E05608272AC41947008ED041 /* Cars Hub.app */;
 			productType = "com.apple.product-type.application";
@@ -340,6 +382,9 @@
 				Base,
 			);
 			mainGroup = E056081E2AC41947008ED041;
+			packageReferences = (
+				E0F8DBCD2AD136BC006FEC08 /* XCLocalSwiftPackageReference "../../Downloads/SDWebImage-master" */,
+			);
 			productRefGroup = E05608282AC41947008ED041 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -359,6 +404,7 @@
 				E05608372AC41947008ED041 /* LaunchScreen.storyboard in Resources */,
 				E05608342AC41947008ED041 /* Assets.xcassets in Resources */,
 				E00D2DA12AC8141E0037AB1F /* CarsTableViewCell.xib in Resources */,
+				E0EB035A2AD14D3600B103BC /* CarDetailsTableViewCell.xib in Resources */,
 				E05608322AC41947008ED041 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -384,6 +430,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E04F31992AC9A04400959600 /* CarsDashboardViewModel.swift in Sources */,
 				E056082F2AC41947008ED041 /* CarsDashboardViewController.swift in Sources */,
 				E00D2D9D2AC813170037AB1F /* CarsListViewController.swift in Sources */,
 				E0A45D622AC41AED007F4BA8 /* UIImageViewExtension.swift in Sources */,
@@ -391,16 +438,20 @@
 				E0A45D5C2AC41AAE007F4BA8 /* DataManager.swift in Sources */,
 				E0A45D642AC41AFD007F4BA8 /* UIViewControllerExtension.swift in Sources */,
 				E056082B2AC41947008ED041 /* AppDelegate.swift in Sources */,
+				E03542A22AD2AD90002B9286 /* StringExtension.swift in Sources */,
 				E00D2D992AC809ED0037AB1F /* UIFont Extension.swift in Sources */,
 				E0A45D6A2AC41C39007F4BA8 /* Coordinator.swift in Sources */,
+				E03542A02AD2957F002B9286 /* CalculateHelper.swift in Sources */,
 				E0A45D682AC41BB2007F4BA8 /* WebServices.swift in Sources */,
 				E00D2D9B2AC80BE10037AB1F /* CALayerExtension.swift in Sources */,
 				E056082D2AC41947008ED041 /* SceneDelegate.swift in Sources */,
 				E0A45D602AC41ADF007F4BA8 /* UIColorExtension.swift in Sources */,
 				E00D2DA32AC823A90037AB1F /* TableViewExtension.swift in Sources */,
+				E0EB03592AD14D3600B103BC /* CarDetailsTableViewCell.swift in Sources */,
 				E0A45D662AC41B59007F4BA8 /* AlertManager.swift in Sources */,
 				E00D2DA02AC8141E0037AB1F /* CarsTableViewCell.swift in Sources */,
-				E0A45D6D2AC41F1A007F4BA8 /* CarMakesResponse.swift in Sources */,
+				E03542A42AD2B769002B9286 /* Int Extension.swift in Sources */,
+				E0A45D6D2AC41F1A007F4BA8 /* CarsData.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -749,6 +800,24 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCLocalSwiftPackageReference section */
+		E0F8DBCD2AD136BC006FEC08 /* XCLocalSwiftPackageReference "../../Downloads/SDWebImage-master" */ = {
+			isa = XCLocalSwiftPackageReference;
+			relativePath = "../../Downloads/SDWebImage-master";
+		};
+/* End XCLocalSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		E0EB03512AD1378400B103BC /* SDWebImage */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = SDWebImage;
+		};
+		E0EB03532AD1378400B103BC /* SDWebImageMapKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = SDWebImageMapKit;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = E056081F2AC41947008ED041 /* Project object */;
 }
