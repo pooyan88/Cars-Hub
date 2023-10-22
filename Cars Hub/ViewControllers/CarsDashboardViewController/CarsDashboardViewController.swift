@@ -11,7 +11,7 @@ import SDWebImage
 class CarsDashboardViewController: UIViewController {
     
     @IBOutlet weak var scrollView: UIScrollView!
-    @IBOutlet weak var topView: UIView!
+    @IBOutlet weak var parentView: UIView!
     @IBOutlet weak var currentMilesTextField: UITextField!
     @IBOutlet weak var engineOilInputTextField: UITextField!
     @IBOutlet weak var changeEngineOilHelperLabel: UILabel!
@@ -23,6 +23,7 @@ class CarsDashboardViewController: UIViewController {
     @IBOutlet weak var changeFiltersHelperLabel: UILabel!
     @IBOutlet weak var descriptionLabel: UILabel!
     @IBOutlet weak var loadingIndicator: UIActivityIndicatorView!
+    @IBOutlet weak var segmentControl: UISegmentedControl!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var searchButton: UIButton!
     @IBOutlet weak var carImageView: UIImageView!
@@ -32,9 +33,6 @@ class CarsDashboardViewController: UIViewController {
     
     var coordinator: MainCoordinator?
     var viewModel: CarsDashboardViewModel!
-    var currentMiles: Int {
-        return Int(currentMilesTextField.text ?? "?") ?? 0
-    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -59,10 +57,18 @@ extension CarsDashboardViewController {
             self?.setupTableViewHidden(isHidden: isHidden)
         }, reloadTableView: { [weak self] in
             self?.reloadTableView()
+        }, updateTimingBeltReplacement: { [weak self] text in
+            self?.updateTimingBeltReplacementHelperLabel(text: text)
+        }, updateEngineOilMilageText: { [weak self] text in
+            self?.updateEngineOilHelperLabel(text: text)
+        }, showBanner: { [weak self] text in
+            self?.showBanner(text: text)
         })
     }
     
     private func setupViews() {
+        setupSegmentControl()
+        setupScrollView()
         navigationItem.largeTitleDisplayMode = .never
         setupSearchButton()
         setupDescriptionLabel()
@@ -72,12 +78,22 @@ extension CarsDashboardViewController {
         setupTopView()
         setupTextFields()
         setupLabels()
+    }
+    
+    private func setupSegmentControl() {
+        segmentControl.setTitle("Personal Service", forSegmentAt: 0)
+        segmentControl.setTitle("Car Data ", forSegmentAt: 1)
+        segmentControl.addTarget(self, action: #selector(segmentedControlChanged(_:)), for: .valueChanged)
+        segmentControl.isHidden = true
+    }
+    
+    private func setupScrollView() {
         scrollView.isHidden = true
-        
+        scrollView.delegate = self
     }
     
     private func setupTopView() {
-        topView.backgroundColor = .clear
+        parentView.backgroundColor = .clear
     }
     
     private func setupSearchButton() {
@@ -107,56 +123,72 @@ extension CarsDashboardViewController {
     private func setupCurrentMilesTextField() {
         currentMilesTextField.attributedPlaceholder = NSAttributedString(
             string: "Enter Your Milage",
-            attributes: [NSAttributedString.Key.foregroundColor: UIColor.black]
+            attributes: [NSAttributedString.Key.foregroundColor: UIColor.white]
         )
-        currentMilesTextField.textColor = .black
+        currentMilesTextField.textColor = .white
+        currentMilesTextField.layer.borderWidth = 1
+        currentMilesTextField.layer.borderColor = UIColor.white.cgColor
         currentMilesTextField.textAlignment = .center
         currentMilesTextField.delegate = self
         currentMilesTextField.keyboardType = .numberPad
+        currentMilesTextField.backgroundColor = .clear
     }
     
     private func setupEngineOilInputTextField() {
         engineOilInputTextField.attributedPlaceholder = NSAttributedString(
-            string: "Last Engine Oil Milage",
-            attributes: [NSAttributedString.Key.foregroundColor: UIColor.black]
+            string: "Enter Milage Here",
+            attributes: [NSAttributedString.Key.foregroundColor: UIColor.white]
         )
-        engineOilInputTextField.textColor = .black
+        engineOilInputTextField.textColor = .white
+        engineOilInputTextField.layer.borderWidth = 1
+        engineOilInputTextField.layer.borderColor = UIColor.white.cgColor
         engineOilInputTextField.textAlignment = .center
         engineOilInputTextField.delegate = self
         engineOilInputTextField.keyboardType = .numberPad
+        engineOilInputTextField.backgroundColor = .clear
     }
     
     private func setupTransmissionOilInputTextField() {
         transmissionOilInputTextField.attributedPlaceholder = NSAttributedString(
-            string: "Last Transmission Oil Milage",
-            attributes: [NSAttributedString.Key.foregroundColor: UIColor.black]
+            string: "Enter Milage Here",
+            attributes: [NSAttributedString.Key.foregroundColor: UIColor.white]
         )
-        transmissionOilInputTextField.textColor = .black
+        transmissionOilInputTextField.textColor = .white
+        transmissionOilInputTextField.layer.borderWidth = 1
+        transmissionOilInputTextField.layer.borderColor = UIColor.white.cgColor
         transmissionOilInputTextField.textAlignment = .center
         transmissionOilInputTextField.delegate = self
         transmissionOilInputTextField.keyboardType = .numberPad
+        transmissionOilInputTextField.backgroundColor = .clear
+        
     }
     
     private func setupTimingBeltInputTextField() {
         timingBeltInputTextField.attributedPlaceholder = NSAttributedString(
-            string: "Last Time Belt Replacement",
-            attributes: [NSAttributedString.Key.foregroundColor: UIColor.black]
+            string: "Enter Milage Here",
+            attributes: [NSAttributedString.Key.foregroundColor: UIColor.white]
         )
-        timingBeltInputTextField.textColor = .black
+        timingBeltInputTextField.textColor = .white
+        timingBeltInputTextField.layer.borderWidth = 1
+        timingBeltInputTextField.layer.borderColor = UIColor.white.cgColor
         timingBeltInputTextField.textAlignment = .center
         timingBeltInputTextField.delegate = self
         timingBeltInputTextField.keyboardType = .numberPad
+        timingBeltInputTextField.backgroundColor = .clear
     }
     
     private func setupFiltersInputTextField() {
         filtersInputTextField.attributedPlaceholder = NSAttributedString(
-            string: "Last Service Milage",
-            attributes: [NSAttributedString.Key.foregroundColor: UIColor.black]
+            string: "Enter Milage Here",
+            attributes: [NSAttributedString.Key.foregroundColor: UIColor.white]
         )
-        filtersInputTextField.textColor = .black
+        filtersInputTextField.textColor = .white
+        filtersInputTextField.layer.borderWidth = 1
+        filtersInputTextField.layer.borderColor = UIColor.white.cgColor
         filtersInputTextField.textAlignment = .center
         filtersInputTextField.delegate = self
         filtersInputTextField.keyboardType = .numberPad
+        filtersInputTextField.backgroundColor = .clear
     }
     
     private func setupLabels() {
@@ -190,6 +222,7 @@ extension CarsDashboardViewController {
     
     private func setupCarImageView() {
         carImageView.image = UIImage(named: "car")
+        carImageView.alpha = 0.25
         carImageView.backgroundColor = .clear
     }
     
@@ -209,6 +242,17 @@ extension CarsDashboardViewController {
         }
     }
     
+    @objc func segmentedControlChanged(_ sender: UISegmentedControl) {
+        switch sender.selectedSegmentIndex {
+        case 0:
+            scrollView.contentOffset.x = view.bounds.minX
+        case 1:
+            scrollView.contentOffset.x = view.bounds.maxX
+        default:
+            print("def")
+        }
+    }
+    
     private func reloadTableView() {
         tableView.reloadData()
     }
@@ -225,6 +269,7 @@ extension CarsDashboardViewController {
         if isHidden {
             searchButton.isHidden = true
             descriptionLabel.isHidden = true
+            segmentControl.isHidden = false
             scrollView.isHidden = false
         }
     }
@@ -264,12 +309,32 @@ extension CarsDashboardViewController {
 //MARK: - Actions
 extension CarsDashboardViewController {
     
-    private func updateEngineOilHelperLabel() {
-        if let textfield = engineOilInputTextField, textfield.text!.count >= 3 {
-            if let lastOilChangeInMiles = Int(engineOilInputTextField.text ?? "?") {
-                changeEngineOilHelperLabel.text = viewModel.getEngineOilDescription(currentMiles: currentMiles, lastOilChangeInMiles: lastOilChangeInMiles)
+    private func updateEngineOilHelperLabel(text: String) {
+        changeEngineOilHelperLabel.text = text
+    }
+    
+    private func updateTransmissionOilHelperLabel() {
+        if let textfield = transmissionOilInputTextField, textfield.text!.count >= 3 {
+            if let lastOilChangesInMiles = Int(transmissionOilInputTextField.text ?? "?") {
+                changeTransmissionHelperLabel.text = viewModel.getTransmissionOilDescription(currentMiles: viewModel.currentMiles, lastOilChangeInMiles: lastOilChangesInMiles)
             }
         }
+    }
+    
+    private func updateTimingBeltReplacementHelperLabel(text: String) {
+        timingBeltHelperLabel.text = text
+    }
+    
+    private func updateFiltersReplacementHelper() {
+        if let textfield = filtersInputTextField, textfield.text!.count >= 3 {
+            if let lastOilChangesInMiles = Int(filtersInputTextField.text ?? "?") {
+                changeFiltersHelperLabel.text = viewModel.getNextServiceDescription(currentMiles: viewModel.currentMiles, lastOIlChangeInMiles: lastOilChangesInMiles)
+            }
+        }
+    }
+    
+    private func showBanner(text: String) {
+        CustomBannerManager.shared.showBanner(message: text, inView: view)
     }
 }
 
@@ -301,8 +366,10 @@ extension CarsDashboardViewController: UITableViewDelegate, UITableViewDataSourc
 extension CarsDashboardViewController: UITextFieldDelegate {
     
     func textFieldDidChangeSelection(_ textField: UITextField) {
-        updateLabelsWhenTextFieldsAreEmpty(textField: textField)
-        updateEngineOilHelperLabel()
+        viewModel.timeBeltText = timingBeltInputTextField.text!
+        viewModel.engineOilMilageText = engineOilInputTextField.text!
+        viewModel.currentMilageText = currentMilesTextField.text!
+        viewModel.updateSummaryLabel()
     }
     
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
@@ -314,5 +381,21 @@ extension CarsDashboardViewController: UITextFieldDelegate {
             timingBeltHelperLabel.isEnabled = !newText.isEmpty
         }
         return true
+    }
+}
+
+//MARK: - ScrollView Delegate
+extension CarsDashboardViewController: UIScrollViewDelegate {
+    
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        if scrollView.contentOffset.x < view.center.x {
+            if segmentControl.selectedSegmentIndex != 0 {
+                segmentControl.selectedSegmentIndex = 0
+            }
+        } else {
+            if segmentControl.selectedSegmentIndex != 1 {
+                segmentControl.selectedSegmentIndex = 1
+            }
+        }
     }
 }

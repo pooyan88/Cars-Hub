@@ -27,6 +27,8 @@
 		E05608422AC41948008ED041 /* Cars_HubTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E05608412AC41948008ED041 /* Cars_HubTests.swift */; };
 		E056084C2AC41948008ED041 /* Cars_HubUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E056084B2AC41948008ED041 /* Cars_HubUITests.swift */; };
 		E056084E2AC41948008ED041 /* Cars_HubUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E056084D2AC41948008ED041 /* Cars_HubUITestsLaunchTests.swift */; };
+		E08E245B2AE54035005886D1 /* CustomBannerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E08E245A2AE54035005886D1 /* CustomBannerView.swift */; };
+		E08E245D2AE54057005886D1 /* CustomBannerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E08E245C2AE54057005886D1 /* CustomBannerManager.swift */; };
 		E0A45D5C2AC41AAE007F4BA8 /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0A45D5B2AC41AAE007F4BA8 /* DataManager.swift */; };
 		E0A45D5E2AC41AD0007F4BA8 /* DateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0A45D5D2AC41AD0007F4BA8 /* DateExtension.swift */; };
 		E0A45D602AC41ADF007F4BA8 /* UIColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0A45D5F2AC41ADF007F4BA8 /* UIColorExtension.swift */; };
@@ -83,6 +85,8 @@
 		E05608472AC41948008ED041 /* Cars HubUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Cars HubUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E056084B2AC41948008ED041 /* Cars_HubUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cars_HubUITests.swift; sourceTree = "<group>"; };
 		E056084D2AC41948008ED041 /* Cars_HubUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cars_HubUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		E08E245A2AE54035005886D1 /* CustomBannerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomBannerView.swift; sourceTree = "<group>"; };
+		E08E245C2AE54057005886D1 /* CustomBannerManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomBannerManager.swift; sourceTree = "<group>"; };
 		E0A45D5B2AC41AAE007F4BA8 /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
 		E0A45D5D2AC41AD0007F4BA8 /* DateExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateExtension.swift; sourceTree = "<group>"; };
 		E0A45D5F2AC41ADF007F4BA8 /* UIColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColorExtension.swift; sourceTree = "<group>"; };
@@ -174,6 +178,7 @@
 		E05608292AC41947008ED041 /* Cars Hub */ = {
 			isa = PBXGroup;
 			children = (
+				E08E24592AE5400B005886D1 /* CustomViews */,
 				E0A45D592AC419F8007F4BA8 /* Models */,
 				E056085C2AC41966008ED041 /* Helpers */,
 				E056085B2AC4195F008ED041 /* Tools */,
@@ -233,6 +238,15 @@
 				E035429F2AD2957F002B9286 /* CalculateHelper.swift */,
 			);
 			path = Helpers;
+			sourceTree = "<group>";
+		};
+		E08E24592AE5400B005886D1 /* CustomViews */ = {
+			isa = PBXGroup;
+			children = (
+				E08E245A2AE54035005886D1 /* CustomBannerView.swift */,
+				E08E245C2AE54057005886D1 /* CustomBannerManager.swift */,
+			);
+			path = CustomViews;
 			sourceTree = "<group>";
 		};
 		E0A45D562AC419CA007F4BA8 /* Web Services */ = {
@@ -497,6 +511,8 @@
 				E0A45D5C2AC41AAE007F4BA8 /* DataManager.swift in Sources */,
 				E0A45D642AC41AFD007F4BA8 /* UIViewControllerExtension.swift in Sources */,
 				E056082B2AC41947008ED041 /* AppDelegate.swift in Sources */,
+				E08E245D2AE54057005886D1 /* CustomBannerManager.swift in Sources */,
+				E08E245B2AE54035005886D1 /* CustomBannerView.swift in Sources */,
 				E03542A22AD2AD90002B9286 /* StringExtension.swift in Sources */,
 				E00D2D992AC809ED0037AB1F /* UIFont Extension.swift in Sources */,
 				E0A45D6A2AC41C39007F4BA8 /* Coordinator.swift in Sources */,
