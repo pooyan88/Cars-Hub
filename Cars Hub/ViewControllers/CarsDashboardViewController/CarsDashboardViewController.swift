@@ -41,6 +41,7 @@ class CarsDashboardViewController: UIViewController {
         
         setupViews()
         setupViewModel()
+        hideKeyboardWhenTappedAround()
     }
 }
 
@@ -105,52 +106,57 @@ extension CarsDashboardViewController {
     
     private func setupCurrentMilesTextField() {
         currentMilesTextField.attributedPlaceholder = NSAttributedString(
-            string: "Enter Your Current Mile",
+            string: "Enter Your Milage",
             attributes: [NSAttributedString.Key.foregroundColor: UIColor.black]
         )
         currentMilesTextField.textColor = .black
         currentMilesTextField.textAlignment = .center
         currentMilesTextField.delegate = self
+        currentMilesTextField.keyboardType = .numberPad
     }
     
     private func setupEngineOilInputTextField() {
         engineOilInputTextField.attributedPlaceholder = NSAttributedString(
-            string: "Enter Your Last Engine Oil Change Mile",
+            string: "Last Engine Oil Milage",
             attributes: [NSAttributedString.Key.foregroundColor: UIColor.black]
         )
         engineOilInputTextField.textColor = .black
         engineOilInputTextField.textAlignment = .center
         engineOilInputTextField.delegate = self
+        engineOilInputTextField.keyboardType = .numberPad
     }
     
     private func setupTransmissionOilInputTextField() {
         transmissionOilInputTextField.attributedPlaceholder = NSAttributedString(
-            string: "Enter Your Last Transmission Oil Change Mile",
+            string: "Last Transmission Oil Milage",
             attributes: [NSAttributedString.Key.foregroundColor: UIColor.black]
         )
         transmissionOilInputTextField.textColor = .black
         transmissionOilInputTextField.textAlignment = .center
         transmissionOilInputTextField.delegate = self
+        transmissionOilInputTextField.keyboardType = .numberPad
     }
     
     private func setupTimingBeltInputTextField() {
         timingBeltInputTextField.attributedPlaceholder = NSAttributedString(
-            string: "Enter Your Last Transmission Oil Change Mile",
+            string: "Last Time Belt Replacement",
             attributes: [NSAttributedString.Key.foregroundColor: UIColor.black]
         )
         timingBeltInputTextField.textColor = .black
         timingBeltInputTextField.textAlignment = .center
         timingBeltInputTextField.delegate = self
+        timingBeltInputTextField.keyboardType = .numberPad
     }
     
     private func setupFiltersInputTextField() {
         filtersInputTextField.attributedPlaceholder = NSAttributedString(
-            string: "Enter Your Last Transmission Oil Change Mile",
+            string: "Last Service Milage",
             attributes: [NSAttributedString.Key.foregroundColor: UIColor.black]
         )
         filtersInputTextField.textColor = .black
         filtersInputTextField.textAlignment = .center
         filtersInputTextField.delegate = self
+        filtersInputTextField.keyboardType = .numberPad
     }
     
     private func setupLabels() {
@@ -192,6 +198,7 @@ extension CarsDashboardViewController {
         tableView.dataSource = self
         tableView.isHidden = true
         tableView.backgroundColor = .clear
+        tableView.separatorStyle = .none
     }
     
     
