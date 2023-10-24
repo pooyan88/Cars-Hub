@@ -26,7 +26,7 @@ class NetworkRequests {
 //MARK: - API Calls
 extension NetworkRequests {
     
-    func getAllMakes(completion: @escaping (Result<[CarsData], MyError>)->()) {
+    func getAllMakes(completion: @escaping (Result<[CarData], MyError>)->()) {
         let url = "https://docs.google.com/spreadsheets/d/e/2PACX-1vTWYOsHsql0kyqg3sj5XbHdvkP_hFnBYM9PG6tdAzhPjNfcxYWporM59yp7fsM2WlzRixhgl06vbl2I/pub?output=csv"
         baseRequest(with: url, type: Data.self, method: .GET, completion: completion)
     }
@@ -35,7 +35,7 @@ extension NetworkRequests {
 // MARK: - Base Requests
 extension NetworkRequests {
     
-    private func baseRequest<T:Decodable>(with url: String, type: T.Type, method: RequestType, completion: @escaping (Result<[CarsData], MyError>)->()) {
+    private func baseRequest<T:Decodable>(with url: String, type: T.Type, method: RequestType, completion: @escaping (Result<[CarData], MyError>)->()) {
         guard let url = URL(string: url) else {
             completion(.failure(.urlError))
             print("URL Error")
@@ -59,8 +59,8 @@ extension NetworkRequests {
 //MARK: - CSV To Array
 extension NetworkRequests {
     
-    func convertCSVIntoArray(data: Data)-> [CarsData] {
-        var tempCars: [CarsData] = []
+    func convertCSVIntoArray(data: Data)-> [CarData] {
+        var tempCars: [CarData] = []
         let dataString = String(data: data, encoding: .utf8) ?? ""
         var rows = dataString.components(separatedBy: "\n")
         rows.removeFirst()
@@ -83,7 +83,7 @@ extension NetworkRequests {
             let horsepower = columns[14].replacingOccurrences(of: "**", with: ",")
             let torque = columns[15].replacingOccurrences(of: "**", with: ",")
             
-            let data = CarsData(id: id, carName: carName, companyName: companyName, oilChange: oilChange, timingBeltReplacement: timingBeltReplacement, tirePressure: tirePressure, sparkReplacement: sparkReplacement, fuelFilterReplacement: fuelFilterReplacement, oilFilterReplacement: oilFilterReplacement, intakeFilterReplacement: intakeFilterReplacement, cabinFilterReplacement: cabinFilterReplacement, transmissionOil: transmissionOil, breakingOil: breakingOil, coolant: coolant, horspower: horsepower, torque: torque)
+            let data = CarData(id: id, carName: carName, companyName: companyName, oilChange: oilChange, timingBeltReplacement: timingBeltReplacement, tirePressure: tirePressure, sparkReplacement: sparkReplacement, fuelFilterReplacement: fuelFilterReplacement, oilFilterReplacement: oilFilterReplacement, intakeFilterReplacement: intakeFilterReplacement, cabinFilterReplacement: cabinFilterReplacement, transmissionOil: transmissionOil, breakingOil: breakingOil, coolant: coolant, horspower: horsepower, torque: torque)
             tempCars.append(data)
         }
         return tempCars

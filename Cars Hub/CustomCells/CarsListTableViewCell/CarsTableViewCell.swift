@@ -27,7 +27,7 @@ final class CarsTableViewCell: UITableViewCell {
 //MARK: - Setup Functions
 extension CarsTableViewCell {
     
-    func setup(data: CarsData) {
+    func setup(data: CarData) {
         let config = Config(carTitle: (data.companyName ?? "?") + " - " + (data.carName ?? "?"))
         setup(config: config)
     }

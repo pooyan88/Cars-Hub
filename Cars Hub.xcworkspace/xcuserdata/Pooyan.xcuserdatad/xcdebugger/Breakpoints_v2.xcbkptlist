@@ -7,79 +7,80 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "AF6C75DC-C18E-42A6-A88A-C89B2840B985"
+            uuid = "0ECCA5D4-7187-4558-B293-7E4A734B9759"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Cars Hub/Helpers/CalculateHelper.swift"
+            filePath = "Cars Hub/ViewControllers/CarsDashboardViewController/CarsDashboardViewModel.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "49"
-            endingLineNumber = "49"
-            landmarkName = "calculateTransmissionOilChangeInMiles(currentMiles:lastReplacementInMiles:suggestedMiles:)"
+            startingLineNumber = "232"
+            endingLineNumber = "232"
+            landmarkName = "getNextServiceDescription(currentMiles:lastOIlChangeInMiles:)"
             landmarkType = "7">
             <Locations>
                <Location
-                  uuid = "AF6C75DC-C18E-42A6-A88A-C89B2840B985 - a7c3a47cf0375df0"
+                  uuid = "0ECCA5D4-7187-4558-B293-7E4A734B9759 - b2644e3fc5724f0"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "Cars_Hub.CalculateHelper.calculateTransmissionOilChangeInMiles(currentMiles: Swift.Int, lastReplacementInMiles: Swift.Int, suggestedMiles: Cars_Hub.CarsData) -&gt; Swift.Int"
+                  symbolName = "Cars_Hub.CarsDashboardViewModel.getNextServiceDescription(currentMiles: Swift.Int, lastOIlChangeInMiles: Swift.Int) -&gt; Swift.String"
                   moduleName = "Cars Hub"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/Pooyan/Desktop/Cars%20Hub/Cars%20Hub/Helpers/CalculateHelper.swift"
+                  urlString = "file:///Users/Pooyan/Desktop/Cars%20Hub/Cars%20Hub/ViewControllers/CarsDashboardViewController/CarsDashboardViewModel.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "49"
-                  endingLineNumber = "49"
-                  offsetFromSymbolStart = "88">
+                  startingLineNumber = "223"
+                  endingLineNumber = "223"
+                  offsetFromSymbolStart = "124">
                </Location>
                <Location
-                  uuid = "AF6C75DC-C18E-42A6-A88A-C89B2840B985 - a7c3a47cf0375df0"
+                  uuid = "0ECCA5D4-7187-4558-B293-7E4A734B9759 - b2644e3fc57247c"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "Cars_Hub.CalculateHelper.calculateTransmissionOilChangeInMiles(currentMiles: Swift.Int, lastReplacementInMiles: Swift.Int, suggestedMiles: Cars_Hub.CarsData) -&gt; Swift.Int"
+                  symbolName = "Cars_Hub.CarsDashboardViewModel.getNextServiceDescription(currentMiles: Swift.Int, lastOIlChangeInMiles: Swift.Int) -&gt; Swift.String"
                   moduleName = "Cars Hub"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/Pooyan/Desktop/Cars%20Hub/Cars%20Hub/Helpers/CalculateHelper.swift"
+                  urlString = "file:///Users/Pooyan/Desktop/Cars%20Hub/Cars%20Hub/ViewControllers/CarsDashboardViewController/CarsDashboardViewModel.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "49"
-                  endingLineNumber = "49"
-                  offsetFromSymbolStart = "344">
+                  startingLineNumber = "219"
+                  endingLineNumber = "219"
+                  offsetFromSymbolStart = "124">
                </Location>
                <Location
-                  uuid = "AF6C75DC-C18E-42A6-A88A-C89B2840B985 - a7c3a47cf0375df0"
+                  uuid = "0ECCA5D4-7187-4558-B293-7E4A734B9759 - b2644e3fc572a2f"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "Cars_Hub.CalculateHelper.calculateTransmissionOilChangeInMiles(currentMiles: Swift.Int, lastReplacementInMiles: Swift.Int, suggestedMiles: Cars_Hub.CarsData) -&gt; Swift.Int"
+                  symbolName = "Cars_Hub.CarsDashboardViewModel.getNextServiceDescription(currentMiles: Swift.Int, lastOIlChangeInMiles: Swift.Int) -&gt; Swift.String"
                   moduleName = "Cars Hub"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/Pooyan/Desktop/Cars%20Hub/Cars%20Hub/Helpers/CalculateHelper.swift"
+                  urlString = "file:///Users/Pooyan/Desktop/Cars%20Hub/Cars%20Hub/ViewControllers/CarsDashboardViewController/CarsDashboardViewModel.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "49"
-                  endingLineNumber = "49"
-                  offsetFromSymbolStart = "84">
-               </Location>
-               <Location
-                  uuid = "AF6C75DC-C18E-42A6-A88A-C89B2840B985 - a7c3a47cf0375df0"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Cars_Hub.CalculateHelper.calculateTransmissionOilChangeInMiles(currentMiles: Swift.Int, lastReplacementInMiles: Swift.Int, suggestedMiles: Cars_Hub.CarsData) -&gt; Swift.Int"
-                  moduleName = "Cars Hub"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/Pooyan/Desktop/Cars%20Hub/Cars%20Hub/Helpers/CalculateHelper.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "49"
-                  endingLineNumber = "49"
-                  offsetFromSymbolStart = "316">
+                  startingLineNumber = "232"
+                  endingLineNumber = "232"
+                  offsetFromSymbolStart = "1116">
                </Location>
             </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "DA7B61A9-13EB-431D-9229-582A8708CA00"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Cars Hub/ViewControllers/CarsDashboardViewController/CarsDashboardViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "289"
+            endingLineNumber = "289"
+            landmarkName = "hideDetailsPage(isHidden:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

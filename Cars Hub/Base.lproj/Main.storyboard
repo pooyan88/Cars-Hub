@@ -329,25 +329,25 @@
                                     <segment title="Second"/>
                                 </segments>
                             </segmentedControl>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cVV-hS-LrG">
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" directionalLockEnabled="YES" alwaysBounceHorizontal="YES" pagingEnabled="YES" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cVV-hS-LrG">
                                 <rect key="frame" x="0.0" y="105" width="393" height="713"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rth-Mf-otp" userLabel="input view">
                                         <rect key="frame" x="0.0" y="0.0" width="393" height="713"/>
                                         <subviews>
-                                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Y60-Io-74C">
+                                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceHorizontal="YES" bouncesZoom="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Y60-Io-74C">
                                                 <rect key="frame" x="0.0" y="0.0" width="393" height="713"/>
                                                 <subviews>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wCR-ut-5ba" userLabel="Parent View">
-                                                        <rect key="frame" x="0.0" y="0.0" width="393" height="713"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="393" height="465.33333333333331"/>
                                                         <subviews>
-                                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="ssD-Tq-6eC">
+                                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="ssD-Tq-6eC">
                                                                 <rect key="frame" x="16" y="16" width="361" height="433.33333333333331"/>
                                                                 <subviews>
                                                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="top" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="kfl-O4-Jmd">
                                                                         <rect key="frame" x="0.0" y="0.0" width="361" height="40"/>
                                                                         <subviews>
-                                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Milage" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YbY-FI-IzW">
+                                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Milage" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="YbY-FI-IzW">
                                                                                 <rect key="frame" x="0.0" y="0.0" width="172.66666666666666" height="20.333333333333332"/>
                                                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                                 <nil key="textColor"/>
@@ -369,7 +369,7 @@
                                                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="2fH-LD-FzO">
                                                                                 <rect key="frame" x="0.0" y="0.0" width="361" height="40"/>
                                                                                 <subviews>
-                                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Last Change Oil" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EFo-pS-zAe">
+                                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Last Change Oil" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="EFo-pS-zAe">
                                                                                         <rect key="frame" x="0.0" y="0.0" width="172.66666666666666" height="40"/>
                                                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                                         <nil key="textColor"/>
@@ -399,14 +399,14 @@
                                                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="xHQ-F6-lOb">
                                                                                 <rect key="frame" x="0.0" y="0.0" width="361" height="40"/>
                                                                                 <subviews>
-                                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Last Transmission Milage" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cYL-dj-Hp3">
-                                                                                        <rect key="frame" x="0.0" y="0.0" width="191.33333333333334" height="40"/>
+                                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Last Transmission Milage" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="cYL-dj-Hp3">
+                                                                                        <rect key="frame" x="0.0" y="0.0" width="180.66666666666666" height="40"/>
                                                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                                         <nil key="textColor"/>
                                                                                         <nil key="highlightedColor"/>
                                                                                     </label>
                                                                                     <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jZO-qm-nYm">
-                                                                                        <rect key="frame" x="329" y="0.0" width="32" height="40"/>
+                                                                                        <rect key="frame" x="188.66666666666663" y="0.0" width="172.33333333333337" height="40"/>
                                                                                         <constraints>
                                                                                             <constraint firstAttribute="height" constant="40" id="N3q-VU-JUf"/>
                                                                                         </constraints>
@@ -429,14 +429,14 @@
                                                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="awu-RV-TmK">
                                                                                 <rect key="frame" x="0.0" y="0.0" width="361" height="40"/>
                                                                                 <subviews>
-                                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Last Timing Belt Replace" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yfT-MG-F1H">
-                                                                                        <rect key="frame" x="0.0" y="0.0" width="187.33333333333334" height="40"/>
+                                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Last Timing Belt Replace" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="yfT-MG-F1H">
+                                                                                        <rect key="frame" x="0.0" y="0.0" width="180.66666666666666" height="40"/>
                                                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                                         <nil key="textColor"/>
                                                                                         <nil key="highlightedColor"/>
                                                                                     </label>
                                                                                     <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jzm-Fk-Hbb">
-                                                                                        <rect key="frame" x="329" y="0.0" width="32" height="40"/>
+                                                                                        <rect key="frame" x="188.66666666666663" y="0.0" width="172.33333333333337" height="40"/>
                                                                                         <constraints>
                                                                                             <constraint firstAttribute="height" constant="40" id="X9K-w6-zQb"/>
                                                                                         </constraints>
@@ -459,7 +459,7 @@
                                                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="c30-Q1-kBb">
                                                                                 <rect key="frame" x="0.0" y="0.0" width="361" height="40"/>
                                                                                 <subviews>
-                                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Filters" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Oyp-ak-39g">
+                                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Filters" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="Oyp-ak-39g">
                                                                                         <rect key="frame" x="0.0" y="0.0" width="172.66666666666666" height="40"/>
                                                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                                         <nil key="textColor"/>
@@ -484,19 +484,24 @@
                                                                         </subviews>
                                                                     </stackView>
                                                                 </subviews>
+                                                                <constraints>
+                                                                    <constraint firstItem="jZO-qm-nYm" firstAttribute="width" secondItem="tWY-JD-xT9" secondAttribute="width" id="GLf-sk-nvH"/>
+                                                                    <constraint firstItem="Qgp-dZ-nPU" firstAttribute="width" secondItem="tWY-JD-xT9" secondAttribute="width" id="KDB-MK-jZA"/>
+                                                                    <constraint firstItem="jzm-Fk-Hbb" firstAttribute="width" secondItem="tWY-JD-xT9" secondAttribute="width" id="TzW-mM-Shi"/>
+                                                                    <constraint firstItem="g37-9B-0d4" firstAttribute="width" secondItem="tWY-JD-xT9" secondAttribute="width" id="rBu-RH-KEy"/>
+                                                                </constraints>
                                                             </stackView>
                                                         </subviews>
                                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                         <constraints>
                                                             <constraint firstItem="ssD-Tq-6eC" firstAttribute="top" secondItem="wCR-ut-5ba" secondAttribute="top" constant="16" id="MAf-Tz-aPt"/>
-                                                            <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="ssD-Tq-6eC" secondAttribute="bottom" constant="16" id="Nmv-To-Ohv"/>
+                                                            <constraint firstAttribute="bottom" secondItem="ssD-Tq-6eC" secondAttribute="bottom" constant="16" id="Nmv-To-Ohv"/>
                                                             <constraint firstAttribute="trailing" secondItem="ssD-Tq-6eC" secondAttribute="trailing" constant="16" id="ODT-yM-T7b"/>
                                                             <constraint firstItem="ssD-Tq-6eC" firstAttribute="leading" secondItem="wCR-ut-5ba" secondAttribute="leading" constant="16" id="Vz1-gs-TMp"/>
                                                         </constraints>
                                                     </view>
                                                 </subviews>
                                                 <constraints>
-                                                    <constraint firstItem="wCR-ut-5ba" firstAttribute="height" secondItem="Y60-Io-74C" secondAttribute="height" id="4eV-eN-Uc3"/>
                                                     <constraint firstAttribute="bottom" secondItem="wCR-ut-5ba" secondAttribute="bottom" id="5QT-yH-ptn"/>
                                                     <constraint firstItem="wCR-ut-5ba" firstAttribute="top" secondItem="Y60-Io-74C" secondAttribute="top" id="9hC-Qt-SuL"/>
                                                     <constraint firstAttribute="trailing" secondItem="wCR-ut-5ba" secondAttribute="trailing" id="XZP-j7-icN"/>
@@ -516,7 +521,7 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VD5-9H-YJo" userLabel="secondView">
                                         <rect key="frame" x="393" y="0.0" width="393" height="713"/>
                                         <subviews>
-                                            <tableView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="HhT-97-phs">
+                                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="HhT-97-phs">
                                                 <rect key="frame" x="0.0" y="0.0" width="393" height="713"/>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                             </tableView>
@@ -575,13 +580,14 @@
                     <connections>
                         <outlet property="carImageView" destination="UPq-D2-iSw" id="4wS-c3-IO1"/>
                         <outlet property="changeEngineOilHelperLabel" destination="9b9-pv-O8j" id="0nJ-Vm-Ska"/>
-                        <outlet property="changeFiltersHelperLabel" destination="qyk-OO-cnz" id="5UH-z6-M5E"/>
                         <outlet property="changeTransmissionHelperLabel" destination="btm-tG-7rg" id="idm-pF-dYj"/>
                         <outlet property="currentMilesTextField" destination="tWY-JD-xT9" id="VZC-7e-xDv"/>
                         <outlet property="descriptionLabel" destination="7OC-um-L8O" id="vne-oL-vkA"/>
                         <outlet property="engineOilInputTextField" destination="Qgp-dZ-nPU" id="az4-fG-lus"/>
-                        <outlet property="filtersInputTextField" destination="g37-9B-0d4" id="Lg8-Jr-Sk2"/>
+                        <outlet property="getDetailsView" destination="rth-Mf-otp" id="vwe-Jh-lQh"/>
+                        <outlet property="lastServiceMilageTextField" destination="g37-9B-0d4" id="Lg8-Jr-Sk2"/>
                         <outlet property="loadingIndicator" destination="7Hh-YS-lRe" id="h7Z-Xo-vzX"/>
+                        <outlet property="nextServiceHelperLabel" destination="qyk-OO-cnz" id="5UH-z6-M5E"/>
                         <outlet property="parentView" destination="wCR-ut-5ba" id="YcD-ix-yzp"/>
                         <outlet property="scrollView" destination="cVV-hS-LrG" id="fO3-DJ-aeu"/>
                         <outlet property="searchButton" destination="FGX-E2-Eff" id="Qc3-lH-pIm"/>

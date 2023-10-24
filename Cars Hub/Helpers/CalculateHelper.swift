@@ -20,14 +20,14 @@ class CalculateHelper {
         return Int(kilometers)
     }
     
-    func calculateOilChangeMile(currentMiles: Int, lastOilChangeInMiles: Int, suggestedMiles: CarsData)-> Int {
+    func calculateOilChangeMile(currentMiles: Int, lastOilChangeInMiles: Int, suggestedMiles: CarData)-> Int {
         if let suggestedMiles = Int.parseToInt(from: suggestedMiles.oilChange ?? "?") {
             return (suggestedMiles - (currentMiles-lastOilChangeInMiles)) + currentMiles
         }
         return 0
     }
     
-    func calculateTimingBeltReplacementInMiles(currentMiles: Int, lastReplacementInMiles: Int, suggestedMiles: CarsData)-> Int {
+    func calculateTimingBeltReplacementInMiles(currentMiles: Int, lastReplacementInMiles: Int, suggestedMiles: CarData)-> Int {
         if suggestedMiles.timingBeltReplacement == "long life" {
             return 0
         } else {
@@ -38,49 +38,49 @@ class CalculateHelper {
         }
     }
     
-    func calculateSparkReplacementInMiles(currentMiles: Int, lastReplacementInMiles: Int, suggestedMiles: CarsData)-> Int {
+    func calculateSparkReplacementInMiles(currentMiles: Int, lastReplacementInMiles: Int, suggestedMiles: CarData)-> Int {
         if let suggestedMiles = Int.parseToInt(from: suggestedMiles.sparkReplacement ?? "?") {
             return (suggestedMiles - (currentMiles-lastReplacementInMiles)) + currentMiles
         }
         return 0
     }
     
-    func calculateTransmissionOilChangeInMiles(currentMiles: Int, lastReplacementInMiles: Int, suggestedMiles: CarsData)-> Int {
+    func calculateTransmissionOilChangeInMiles(currentMiles: Int, lastReplacementInMiles: Int, suggestedMiles: CarData)-> Int {
         if let suggestedMiles = Int.parseToInt(from: suggestedMiles.transmissionOil ?? "?"){
             return (suggestedMiles - (currentMiles-lastReplacementInMiles)) + currentMiles
         }
         return 0
     }
     
-    func calculateOilFilterReplacementInMiles(currentMiles: Int, lastReplacementInMiles: Int, suggestedMiles: CarsData)-> Int {
+    func calculateOilFilterReplacementInMiles(currentMiles: Int, lastReplacementInMiles: Int, suggestedMiles: CarData)-> Int {
         if let suggestedMiles = Int.parseToInt(from: suggestedMiles.oilFilterReplacement ?? "?"){
             return (suggestedMiles - (currentMiles-lastReplacementInMiles)) + currentMiles
         }
         return 0
     }
     
-    func calculateIntakeFilterReplacementInMiles(currentMiles: Int, lastReplacementInMiles: Int, suggestedMiles: CarsData)-> Int {
+    func calculateIntakeFilterReplacementInMiles(currentMiles: Int, lastReplacementInMiles: Int, suggestedMiles: CarData)-> Int {
         if let suggestedMiles = Int.parseToInt(from: suggestedMiles.intakeFilterReplacement ?? "?"){
             return (suggestedMiles - (currentMiles-lastReplacementInMiles)) + currentMiles
         }
         return 0
     }
     
-    func calculateCabinFilterReplacementInMiles(currentMiles: Int, lastReplacementInMiles: Int, suggestedMiles: CarsData)-> Int {
+    func calculateCabinFilterReplacementInMiles(currentMiles: Int, lastReplacementInMiles: Int, suggestedMiles: CarData)-> Int {
         if let suggestedMiles = Int.parseToInt(from: suggestedMiles.cabinFilterReplacement ?? "?") {
             return (suggestedMiles - (currentMiles-lastReplacementInMiles)) + currentMiles
         }
         return 0
     }
     
-    func calculateBreakingOilChangeInMiles(currentMiles: Int, lastReplacementInMiles: Int, suggestedMiles: CarsData)-> Int {
+    func calculateBreakingOilChangeInMiles(currentMiles: Int, lastReplacementInMiles: Int, suggestedMiles: CarData)-> Int {
         if let suggestedMiles = Int.parseToInt(from: suggestedMiles.breakingOil ?? "?") {
             return (suggestedMiles - (currentMiles-lastReplacementInMiles)) + currentMiles
         }
         return 0
     }
     
-    func calculateCoolantChangeInMiles(currentMiles: Int, lastReplacementInMiles: Int, suggestedMiles: CarsData)-> Int {
+    func calculateCoolantChangeInMiles(currentMiles: Int, lastReplacementInMiles: Int, suggestedMiles: CarData)-> Int {
         if let suggestedMiles = Int.parseToInt(from: suggestedMiles.coolant ?? "?") {
             return (suggestedMiles - (currentMiles-lastReplacementInMiles)) + currentMiles
         }

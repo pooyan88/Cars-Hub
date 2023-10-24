@@ -59,7 +59,7 @@ extension CarDetailsTableViewCell {
 
     }
     
-    func setup(data: CarsData) {
+    func setup(data: CarData) {
        
     }
 }

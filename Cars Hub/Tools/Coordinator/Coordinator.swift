@@ -24,7 +24,7 @@ class MainCoordinator: Coordinator {
         navigationController.pushViewController(initialVC, animated: false)
     }
     
-    func gotoCarsListViewController(with carsData: [CarsData], delegate: CarsListViewControllerDelegate) {
+    func gotoCarsListViewController(with carsData: [CarData], delegate: CarsListViewControllerDelegate) {
         let vc: CarsListViewController = CarsListViewController.instantiate(appStoryboard: .main)
         vc.coordinator = self
         vc.carsData = carsData

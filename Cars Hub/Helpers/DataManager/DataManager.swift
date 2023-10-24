@@ -12,17 +12,17 @@ class DataManager {
     static let shared = DataManager()
     
     
-    func saveCars(cars: [CarsData]) {
-        let encodedData = try? JSONEncoder().encode(cars)
-        UserDefaults.standard.set(encodedData, forKey: "cars")
+    func saveCarDetails(details: CarDetails) {
+        let encodedData = try? JSONEncoder().encode(details)
+        UserDefaults.standard.set(encodedData, forKey: "details")
     }
     
-    func loadCars()-> [CarsData] {
-        if let data = UserDefaults.standard.data(forKey: "cars") {
-            if let decodedData = try? JSONDecoder().decode([CarsData].self, from: data) {
+    func loadCarDetails()-> CarDetails? {
+        if let data = UserDefaults.standard.data(forKey: "details") {
+            if let decodedData = try? JSONDecoder().decode(CarDetails.self, from: data) {
                 return decodedData
             }
         }
-        return []
+        return nil
     }
 }

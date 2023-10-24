@@ -8,7 +8,7 @@
 import UIKit
 
 protocol CarsListViewControllerDelegate {
-    func passCarDetails(car: CarsData)
+    func passCarDetails(car: CarData)
 }
 
 class CarsListViewController: UIViewController {
@@ -18,7 +18,7 @@ class CarsListViewController: UIViewController {
     
     var delegate: CarsListViewControllerDelegate?
     var coordinator: MainCoordinator?
-    var carsData: [CarsData] = [] {
+    var carsData: [CarData] = [] {
         didSet {
             if tableView != nil {
                 tableView.reloadData()
@@ -26,7 +26,7 @@ class CarsListViewController: UIViewController {
         }
     }
     
-    var filteredCarMakes: [CarsData] = [] {
+    var filteredCarMakes: [CarData] = [] {
         didSet {
             if tableView != nil {
                 tableView.reloadData()
