@@ -19,6 +19,7 @@ class CarsDashboardViewModel {
     private var updateEngineOilMilageText: (_ text: String)-> Void
     private var updateTransmissionOilMilageText: (_ text: String)-> Void
     private var updateNextServiceMilageText: (_ text: String)-> Void
+    private var setupNavigationBarTitle: (_ text: String)-> Void
     private var showBanner: (_ text: String)-> Void
     var timeBeltText = ""
     var engineOilMilageText = ""
@@ -34,6 +35,7 @@ class CarsDashboardViewModel {
     }
     var selectedCars: [CarData] = [] {
         didSet {
+            setupNavigationItemTitle()
             isScrollViewHidden(false)
             isInitialViewHidden(true)
             reloadTableView()
@@ -42,8 +44,10 @@ class CarsDashboardViewModel {
     var currentMiles: Int {
         return Int(currentMilageText) ?? 0
     }
-    var userCarDetails: CarDetails! {
+    var userCarDetails: CarDetails? {
         set {
+            setupNavigationItemTitle()
+            guard let newValue = newValue else { return }
             DataManager.shared.saveCarDetails(details: newValue)
             setupScollViewHiddenStyle()
         } get {
@@ -61,6 +65,7 @@ class CarsDashboardViewModel {
          updateEngineOilMilageText: @escaping (_ text: String)-> Void,
          updateTransmissionOilMilageText: @escaping (_ text: String)-> Void,
          updateNextServiceMilageText: @escaping (_ text: String)-> Void,
+         setupNavigationBarTitle: @escaping (_ text: String)-> Void,
          showBanner: @escaping (_ text: String)-> Void) {
         self.showLoading = showLoading
         self.isSearchButtonEnable = isSearchButtonEnable
@@ -72,42 +77,16 @@ class CarsDashboardViewModel {
         self.updateEngineOilMilageText = updateEngineOilMilageText
         self.updateTransmissionOilMilageText = updateTransmissionOilMilageText
         self.updateNextServiceMilageText = updateNextServiceMilageText
+        self.setupNavigationBarTitle = setupNavigationBarTitle
         self.showBanner = showBanner
         getCars()
+        setupNavigationItemTitle()
     }
 }
 
 
 //MARK: - Logic
 extension CarsDashboardViewModel {
-    
-    private func getTimeBeltDescription() -> String {
-        if isTimeBeltFieldValid() {
-            return getTimingBeltReplacementDescription(currentMiles: currentMiles, lastOilChangeInMiles: Int(timeBeltText) ?? 0)
-        }
-        return "?"
-    }
-    
-    private func getEngineOilDescription()-> String {
-        if engineOilMilageText.count >= 0 {
-            return getEngineOilDescription(currentMiles: currentMiles, lastOilChangeInMiles: Int(engineOilMilageText) ?? 0)
-        }
-        return "?"
-    }
-    
-    private func getTransmissionOilDescription()-> String {
-        if transmissionOilMilageText.count >= 3 {
-            return getTransmissionOilDescription(currentMiles: currentMiles, lastOilChangeInMiles: Int(transmissionOilMilageText) ?? 0)
-        }
-        return "?"
-    }
-    
-    private func getNextServiceDescription()-> String {
-        if lastServiceMilageText.count >= 3 {
-            return getNextServiceDescription(currentMiles: currentMiles, lastOIlChangeInMiles: Int(lastServiceMilageText) ?? 0)
-        }
-        return "?"
-    }
     
     private func isAllFieldsValid() -> Bool {
         return isTimeBeltFieldValid() || isEngineOilFieldValid()
@@ -163,7 +142,7 @@ extension CarsDashboardViewModel {
         if userCarDetails == nil {
             return selectedCars[0]
         } else {
-            return userCarDetails.carInfo
+            return userCarDetails?.carInfo
         }
     }
 }
@@ -173,7 +152,7 @@ extension CarsDashboardViewModel {
     
     func updateSummaryLabel() {
         if isTimeBeltFieldValid() {
-            updateTimingBeltReplacement(getTimeBeltDescription())
+            updateTimingBeltReplacement(getTimingBeltReplacementDescription())
         }
         if isEngineOilFieldValid() {
             updateEngineOilMilageText(getEngineOilDescription())
@@ -197,49 +176,194 @@ extension CarsDashboardViewModel {
             showErrorBanner(error: "enter at least 3 characters")
         }
         if let car = selectedCars.first {
-            userCarDetails = CarDetails(currentMilage: currentMilageText, lastEngineOilChangeMilage: engineOilMilageText, lastTransmissionMilage: transmissionOilMilageText, lastTimingBeltReplacementMilage: timeBeltText, lastServiceMilage: lastServiceMilageText, carInfo: car)
+            userCarDetails = CarDetails(currentMilage: currentMilageText, lastEngineOilChangeMilage: engineOilMilageText, lastTransmissionMilage: transmissionOilMilageText, lastTimingBeltReplacementMilage: timeBeltText, lastServiceMilage: lastServiceMilageText, engineOilHelperDescription: getEngineOilDescription(), transmissionOilHelperDescription: getTransmissionOilDescription(), timingBeltReplacementHelperDescription: getTimingBeltReplacementDescription(), nextServiceHelperDescription: getNextServiceDescription(), carInfo: car)
             isScrollViewHidden(false)
+        } else { userCarDetails = CarDetails(currentMilage: currentMilageText, lastEngineOilChangeMilage: engineOilMilageText, lastTransmissionMilage: transmissionOilMilageText, lastTimingBeltReplacementMilage: timeBeltText, lastServiceMilage: lastServiceMilageText, engineOilHelperDescription: getEngineOilDescription(), transmissionOilHelperDescription: getTransmissionOilDescription(), timingBeltReplacementHelperDescription: getTimingBeltReplacementDescription(), nextServiceHelperDescription: getNextServiceDescription(), carInfo: userCarDetails?.carInfo)
         }
     }
     
-    func getEngineOilDescription(currentMiles: Int, lastOilChangeInMiles: Int)-> String {
-        guard let car = selectedCars.first else { return "..."}
-        let text = "You have to change your oil at " + CalculateHelper.shared.calculateOilChangeMile(currentMiles: currentMiles, lastOilChangeInMiles: lastOilChangeInMiles, suggestedMiles: car).description + "miles"
-        return text
-    }
-    
-    func getTransmissionOilDescription(currentMiles: Int, lastOilChangeInMiles: Int)-> String {
-        guard let car = selectedCars.first else { return "..."}
-        let text = "You have to change your Transmission oil at " + CalculateHelper.shared.calculateTransmissionOilChangeInMiles(currentMiles: currentMiles, lastReplacementInMiles: lastOilChangeInMiles, suggestedMiles: car).description + "miles"
-        return text
-    }
-    
-    func getTimingBeltReplacementDescription(currentMiles: Int, lastOilChangeInMiles: Int)-> String {
-        if currentMiles == 0 {
-            return 0.description
+    private func getEngineOilDescription()-> String {
+        if let car = selectedCars.first {
+            let text = "You have to change your oil at " + CalculateHelper.shared.calculateOilChangeMile(currentMiles: currentMiles, lastOilChangeInMiles: Int(engineOilMilageText) ?? 0, suggestedMiles: car).description + "miles"
+            return text
         } else {
-            let int = CalculateHelper.shared.calculateTimingBeltReplacementInMiles(currentMiles: currentMiles, lastReplacementInMiles: lastOilChangeInMiles, suggestedMiles: selectedCars[0])
-            if int == 0 {
-                return "Your timing belt is long life"
+            let text = "You have to change your oil at " + CalculateHelper.shared.calculateOilChangeMile(currentMiles: currentMiles, lastOilChangeInMiles: Int(engineOilMilageText) ?? 0, suggestedMiles: (userCarDetails?.carInfo)!).description + "miles"
+            return text
+        }
+    }
+    
+    private func getTransmissionOilDescription()-> String {
+        if let car = selectedCars.first {
+            let text = "You have to change your Transmission oil at " + CalculateHelper.shared.calculateTransmissionOilChangeInMiles(currentMiles: currentMiles, lastReplacementInMiles: Int(transmissionOilMilageText) ?? 0, suggestedMiles: car).description + "miles"
+            return text
+        } else {
+            let text = "You have to change your oil at " + CalculateHelper.shared.calculateTransmissionOilChangeInMiles(currentMiles: currentMiles, lastReplacementInMiles: Int(transmissionOilMilageText) ?? 0, suggestedMiles: (userCarDetails?.carInfo)!).description + "miles"
+            return text
+        }
+    }
+    
+    private func getTimingBeltReplacementDescription()-> String {
+        if let car = selectedCars.first {
+            if currentMiles == 0 {
+                return 0.description
             } else {
-                return "You have to replace your timing belt at " + int.description + "miles"
+                let int = CalculateHelper.shared.calculateTimingBeltReplacementInMiles(currentMiles: currentMiles, lastReplacementInMiles: Int(timeBeltText) ?? 0, suggestedMiles: car)
+                if int == 0 {
+                    return "Your timing belt is long life"
+                } else {
+                    return "You have to replace your timing belt at " + int.description + "miles"
+                }
+            }
+        } else {
+            if currentMiles == 0 {
+                return 0.description
+            } else {
+                let int = CalculateHelper.shared.calculateTimingBeltReplacementInMiles(currentMiles: currentMiles, lastReplacementInMiles: Int(timeBeltText) ?? 0, suggestedMiles: (userCarDetails?.carInfo)!)
+                if int == 0 {
+                    return "Your timing belt is long life"
+                } else {
+                    return "You have to replace your timing belt at " + int.description + "miles"
+                }
             }
         }
     }
     
-    func getNextServiceDescription(currentMiles: Int, lastOIlChangeInMiles: Int)-> String {
-        guard let car = selectedCars.first else {return "..."}
-        let oilFilterReplacementMilage = CalculateHelper.shared.calculateOilFilterReplacementInMiles(currentMiles: currentMiles, lastReplacementInMiles: lastOIlChangeInMiles, suggestedMiles: car)
-        let intakeFilterReplacementMilage = CalculateHelper.shared.calculateIntakeFilterReplacementInMiles(currentMiles: currentMiles, lastReplacementInMiles: lastOIlChangeInMiles, suggestedMiles: car)
-        let cabinFilterReplacementMilage = CalculateHelper.shared.calculateCabinFilterReplacementInMiles(currentMiles: currentMiles, lastReplacementInMiles: lastOIlChangeInMiles, suggestedMiles: car)
-        let coolantChangeInMiles = CalculateHelper.shared.calculateCoolantChangeInMiles(currentMiles: currentMiles, lastReplacementInMiles: lastOIlChangeInMiles, suggestedMiles: car)
-        let breakingOilChangeInMiles = CalculateHelper.shared.calculateBreakingOilChangeInMiles(currentMiles: currentMiles, lastReplacementInMiles: lastOIlChangeInMiles, suggestedMiles: car)
-        let text = "Engine oil replace mile: " + oilFilterReplacementMilage.description + "\r\n"
-        + " intake filter replace mile: " + intakeFilterReplacementMilage.description + "\r\n"
-        + " cabin filter replace mile: " + cabinFilterReplacementMilage.description + "\r\n"
-        + " coolant change mile: " + coolantChangeInMiles.description + "\r\n"
-        + " breake oil change mile: " + breakingOilChangeInMiles.description
-        return text
+    private func getNextServiceDescription()-> String {
+            let text = "Engine oil replace mile: " + getOilFilterReplacementMilage().description + "\r\n"
+            + " intake filter replace mile: " + getIntakeFilterReplacementMilage().description + "\r\n"
+            + " cabin filter replace mile: " + getCabinFilterReplacementMilage().description + "\r\n"
+            + " coolant change mile: " + getCoolantChangeMilage().description + "\r\n"
+            + " breake oil change mile: " + getBreakingOilChangeDescription().description
+            return text
+    }
+    
+    private func getOilFilterReplacementMilage()-> Int {
+        if let car = selectedCars.first {
+            let oilFilterReplacementMilage = CalculateHelper.shared.calculateOilFilterReplacementInMiles(currentMiles: currentMiles, lastReplacementInMiles: Int(lastServiceMilageText) ?? 0, suggestedMiles: car)
+            return oilFilterReplacementMilage
+        } else {
+            let oilFilterReplacementMilage = CalculateHelper.shared.calculateOilFilterReplacementInMiles(currentMiles: currentMiles, lastReplacementInMiles: Int(lastServiceMilageText) ?? 0, suggestedMiles: (userCarDetails?.carInfo!)!)
+            return oilFilterReplacementMilage
+        }
+    }
+    
+    private func getIntakeFilterReplacementMilage()-> Int {
+        if let car = selectedCars.first {
+            let intakeFilterReplacementMilage = CalculateHelper.shared.calculateIntakeFilterReplacementInMiles(currentMiles: currentMiles, lastReplacementInMiles: Int(lastServiceMilageText) ?? 0, suggestedMiles: car)
+            return intakeFilterReplacementMilage
+        } else {
+            let intakeFilterReplacementMilage = CalculateHelper.shared.calculateIntakeFilterReplacementInMiles(currentMiles: currentMiles, lastReplacementInMiles: Int(lastServiceMilageText) ?? 0, suggestedMiles: (userCarDetails?.carInfo!)!)
+            return intakeFilterReplacementMilage
+        }
+    }
+    
+    private func getCabinFilterReplacementMilage()-> Int {
+        if let car = selectedCars.first {
+            let cabinFilterReplacementMilage = CalculateHelper.shared.calculateCabinFilterReplacementInMiles(currentMiles: currentMiles, lastReplacementInMiles: Int(lastServiceMilageText) ?? 0, suggestedMiles: car)
+            return cabinFilterReplacementMilage
+        } else {
+            let cabinFilterReplacementMilage = CalculateHelper.shared.calculateCabinFilterReplacementInMiles(currentMiles: currentMiles, lastReplacementInMiles: Int(lastServiceMilageText) ?? 0, suggestedMiles: (userCarDetails?.carInfo!)!)
+            return cabinFilterReplacementMilage
+        }
+    }
+    
+    private func getCoolantChangeMilage()-> Int {
+        if let car = selectedCars.first {
+            let coolantChangeInMiles = CalculateHelper.shared.calculateCoolantChangeInMiles(currentMiles: currentMiles, lastReplacementInMiles: Int(lastServiceMilageText) ?? 0, suggestedMiles: car)
+            return coolantChangeInMiles
+        } else {
+            let coolantChangeInMiles = CalculateHelper.shared.calculateCoolantChangeInMiles(currentMiles: currentMiles, lastReplacementInMiles: Int(lastServiceMilageText) ?? 0, suggestedMiles: (userCarDetails?.carInfo!)!)
+            return coolantChangeInMiles
+        }
+    }
+    
+    private func getBreakingOilChangeDescription()-> String {
+        if let car = selectedCars.first {
+            let breakingOilChangeInMiles = CalculateHelper.shared.calculateBreakingOilChangeInMiles(currentMiles: currentMiles, lastReplacementInMiles: Int(lastServiceMilageText) ?? 0, suggestedMiles: car)
+            return breakingOilChangeInMiles.description
+        } else {
+            let breakingOilChangeInMiles = CalculateHelper.shared.calculateBreakingOilChangeInMiles(currentMiles: currentMiles, lastReplacementInMiles: Int(lastServiceMilageText) ?? 0, suggestedMiles: (userCarDetails?.carInfo!)!)
+            return breakingOilChangeInMiles.description
+        }
+    }
+}
+
+
+//MARK: - Retrieve User Data
+extension CarsDashboardViewModel {
+    
+    
+    func getCurrentMilageText()-> String {
+        if let milage = userCarDetails?.currentMilage {
+            return milage
+        }
+        return ""
+    }
+    
+    func getLastEngineOilServiceMilageText()-> String {
+        if let lastOilServiceMilage = userCarDetails?.lastEngineOilChangeMilage {
+            return lastOilServiceMilage
+        }
+        return ""
+    }
+    
+    func getLastTransmissionOilServiceMilageText()-> String {
+        if let lastTransmissionOilServiceMilage = userCarDetails?.lastTransmissionMilage {
+            return lastTransmissionOilServiceMilage
+        }
+        return ""
+    }
+    
+    func getLastTimingBeltReplacementMilageText()-> String {
+        if let lastTimingBeltReplacementMilage = userCarDetails?.lastTimingBeltReplacementMilage {
+            return lastTimingBeltReplacementMilage
+        }
+        return ""
+    }
+    
+    func getLastServiceMilageText()-> String {
+        if let lastServiceMilage = userCarDetails?.lastServiceMilage {
+            return lastServiceMilage
+        }
+        return ""
+    }
+    
+    func getChangeOilHelperText()-> String {
+        if let changeOilHelperText = userCarDetails?.engineOilHelperDescription {
+            return changeOilHelperText
+        }
+        return "..."
+    }
+    
+    func getChangeTransmissionOilHelperText()-> String {
+        if let transmissionOilHelperText = userCarDetails?.transmissionOilHelperDescription {
+            return transmissionOilHelperText
+        }
+        return "..."
+    }
+    
+    func getTimingBeltHelperText()-> String {
+        if let timingBeltReplacementHelperText = userCarDetails?.timingBeltReplacementHelperDescription{
+            return timingBeltReplacementHelperText
+        }
+        return "..."
+    }
+    
+    func getNextServiceHelperText()-> String {
+        if let nextServiceHelperText = userCarDetails?.nextServiceHelperDescription {
+            return nextServiceHelperText
+        }
+        return "..."
+    }
+    
+    func setupNavigationItemTitle() {
+        if let selectedCar = selectedCars.first {
+            setupNavigationBarTitle(selectedCar.companyName! + " " + selectedCar.carName!)
+        } else if let savedCar = userCarDetails, let companyName = savedCar.carInfo?.companyName, let carName = savedCar.carInfo?.carName {
+            setupNavigationBarTitle(companyName + " " + carName)
+        } else {
+            setupNavigationBarTitle("")
+        }
     }
 }
 

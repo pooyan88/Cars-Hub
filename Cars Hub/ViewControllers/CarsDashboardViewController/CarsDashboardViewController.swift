@@ -68,6 +68,8 @@ extension CarsDashboardViewController {
             self?.updateTransmissionOilHelperLabel(text: text)
         }, updateNextServiceMilageText: { [weak self] text in
             self?.updateNextServiceHelperLabel(text: text)
+        }, setupNavigationBarTitle: { [weak self] text in
+            self?.setupNavigationBarTitle(text: text)
         }, showBanner: { [weak self] text in
             self?.showBanner(text: text)
         })
@@ -91,7 +93,7 @@ extension CarsDashboardViewController {
         segmentControl.setTitle("Personal Service", forSegmentAt: 0)
         segmentControl.setTitle("Car Data ", forSegmentAt: 1)
         segmentControl.addTarget(self, action: #selector(segmentedControlChanged(_:)), for: .valueChanged)
-        segmentControl.isHidden = DataManager.shared.loadCarDetails() == nil
+        segmentControl.isHidden = true
     }
     
     private func setupScrollView() {
@@ -146,6 +148,7 @@ extension CarsDashboardViewController {
         currentMilesTextField.keyboardType = .numberPad
         currentMilesTextField.backgroundColor = .clear
         currentMilesTextField.layer.cornerRadius = 16
+        currentMilesTextField.text = viewModel.getCurrentMilageText()
     }
     
     private func setupEngineOilInputTextField() {
@@ -161,6 +164,7 @@ extension CarsDashboardViewController {
         engineOilInputTextField.keyboardType = .numberPad
         engineOilInputTextField.backgroundColor = .clear
         engineOilInputTextField.layer.cornerRadius = 16
+        engineOilInputTextField.text = viewModel.getLastEngineOilServiceMilageText()
     }
     
     private func setupTransmissionOilInputTextField() {
@@ -176,6 +180,7 @@ extension CarsDashboardViewController {
         transmissionOilInputTextField.keyboardType = .numberPad
         transmissionOilInputTextField.backgroundColor = .clear
         transmissionOilInputTextField.layer.cornerRadius = 16
+        transmissionOilInputTextField.text = viewModel.getLastTransmissionOilServiceMilageText()
     }
     
     private func setupTimingBeltInputTextField() {
@@ -191,6 +196,7 @@ extension CarsDashboardViewController {
         timingBeltInputTextField.keyboardType = .numberPad
         timingBeltInputTextField.backgroundColor = .clear
         timingBeltInputTextField.layer.cornerRadius = 16
+        timingBeltInputTextField.text = viewModel.getLastTimingBeltReplacementMilageText()
     }
     
     private func setupFiltersInputTextField() {
@@ -206,34 +212,39 @@ extension CarsDashboardViewController {
         lastServiceMilageTextField.keyboardType = .numberPad
         lastServiceMilageTextField.backgroundColor = .clear
         lastServiceMilageTextField.layer.cornerRadius = 16
+        lastServiceMilageTextField.text = viewModel.getLastServiceMilageText()
     }
     
     private func setupLabels() {
         setupChangeOilHelperLabel()
         setupChangeTransmissionHelperLabel()
         setupChangeTimingBeltHelperLabel()
-        setupChangeFiltersHelperLabel()
+        setupNextServiceHelperLabel()
     }
     
     private func setupChangeOilHelperLabel() {
         changeEngineOilHelperLabel.textColor = .white
-        changeEngineOilHelperLabel.textAlignment = .center
+        changeEngineOilHelperLabel.textAlignment = .left
+        changeEngineOilHelperLabel.text = viewModel.getChangeOilHelperText()
     }
     
     private func setupChangeTransmissionHelperLabel() {
         changeTransmissionHelperLabel.textColor = .white
-        changeTransmissionHelperLabel.textAlignment = .center
+        changeTransmissionHelperLabel.textAlignment = .left
+        changeTransmissionHelperLabel.text = viewModel.getChangeTransmissionOilHelperText()
     }
     
     private func setupChangeTimingBeltHelperLabel() {
         timingBeltHelperLabel.textColor = .white
-        timingBeltHelperLabel.textAlignment = .center
+        timingBeltHelperLabel.textAlignment = .left
+        timingBeltHelperLabel.text = viewModel.getTimingBeltHelperText()
     }
     
-    private func setupChangeFiltersHelperLabel() {
+    private func setupNextServiceHelperLabel() {
         nextServiceHelperLabel.textColor = .white
-        nextServiceHelperLabel.textAlignment = .center
+        nextServiceHelperLabel.textAlignment = .left
         nextServiceHelperLabel.numberOfLines = 0
+        nextServiceHelperLabel.text = viewModel.getNextServiceHelperText()
     }
     
     
@@ -335,16 +346,12 @@ extension CarsDashboardViewController {
         nextServiceHelperLabel.text = text
     }
     
-    private func updateFiltersReplacementHelper() {
-        if let textfield = lastServiceMilageTextField, textfield.text!.count >= 3 {
-            if let lastOilChangesInMiles = Int(lastServiceMilageTextField.text ?? "?") {
-                nextServiceHelperLabel.text = viewModel.getNextServiceDescription(currentMiles: viewModel.currentMiles, lastOIlChangeInMiles: lastOilChangesInMiles)
-            }
-        }
-    }
-    
     private func showBanner(text: String) {
         CustomBannerManager.shared.showBanner(message: text, inView: view)
+    }
+    
+    private func setupNavigationBarTitle(text: String) {
+        navigationItem.title = text
     }
 }
 
