@@ -98,7 +98,7 @@ extension CarsDashboardViewController {
     
     private func setupScrollView() {
         scrollView.delegate = self
-        scrollView.isHidden = DataManager.shared.loadCarDetails() == nil
+        scrollView.isHidden = viewModel.userCarDetails == nil
     }
     
     private func setupScrollViewHidden(isHidden: Bool) {
@@ -114,7 +114,7 @@ extension CarsDashboardViewController {
         searchButton.setTitle("Search", for: .normal)
         searchButton.backgroundColor = .searchButtonColor
         searchButton.layer.cornerRadius = 10
-        searchButton.isHidden = DataManager.shared.loadCarDetails() != nil
+        searchButton.isHidden = viewModel.userCarDetails != nil
     }
     
     private func setupDescriptionLabel() {
@@ -124,7 +124,7 @@ extension CarsDashboardViewController {
         descriptionLabel.text = "Add Your Car"
         descriptionLabel.textColor = .white
         descriptionLabel.textAlignment = .center
-        descriptionLabel.isHidden = DataManager.shared.loadCarDetails() != nil
+        descriptionLabel.isHidden = viewModel.userCarDetails != nil
     }
     
     private func setupTextFields() {
@@ -148,7 +148,6 @@ extension CarsDashboardViewController {
         currentMilesTextField.keyboardType = .numberPad
         currentMilesTextField.backgroundColor = .clear
         currentMilesTextField.layer.cornerRadius = 16
-        currentMilesTextField.text = viewModel.getCurrentMilageText()
     }
     
     private func setupEngineOilInputTextField() {
@@ -164,7 +163,6 @@ extension CarsDashboardViewController {
         engineOilInputTextField.keyboardType = .numberPad
         engineOilInputTextField.backgroundColor = .clear
         engineOilInputTextField.layer.cornerRadius = 16
-        engineOilInputTextField.text = viewModel.getLastEngineOilServiceMilageText()
     }
     
     private func setupTransmissionOilInputTextField() {
@@ -180,7 +178,6 @@ extension CarsDashboardViewController {
         transmissionOilInputTextField.keyboardType = .numberPad
         transmissionOilInputTextField.backgroundColor = .clear
         transmissionOilInputTextField.layer.cornerRadius = 16
-        transmissionOilInputTextField.text = viewModel.getLastTransmissionOilServiceMilageText()
     }
     
     private func setupTimingBeltInputTextField() {
@@ -196,7 +193,6 @@ extension CarsDashboardViewController {
         timingBeltInputTextField.keyboardType = .numberPad
         timingBeltInputTextField.backgroundColor = .clear
         timingBeltInputTextField.layer.cornerRadius = 16
-        timingBeltInputTextField.text = viewModel.getLastTimingBeltReplacementMilageText()
     }
     
     private func setupFiltersInputTextField() {
@@ -212,7 +208,6 @@ extension CarsDashboardViewController {
         lastServiceMilageTextField.keyboardType = .numberPad
         lastServiceMilageTextField.backgroundColor = .clear
         lastServiceMilageTextField.layer.cornerRadius = 16
-        lastServiceMilageTextField.text = viewModel.getLastServiceMilageText()
     }
     
     private func setupLabels() {

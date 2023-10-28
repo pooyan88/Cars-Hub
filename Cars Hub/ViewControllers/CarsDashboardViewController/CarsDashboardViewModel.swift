@@ -371,9 +371,14 @@ extension CarsDashboardViewModel {
 extension CarsDashboardViewModel {
         
     private func getCars() {
-        getAllMakers { [weak self] cars in
-            self?.carsData = cars
-            self?.isSearchButtonEnable(!cars.isEmpty)
+        if let car = userCarDetails?.carInfo {
+            carsData = [car]
+            showLoading(false)
+        } else {
+            getAllMakers { [weak self] cars in
+                self?.carsData = cars
+                self?.isSearchButtonEnable(!cars.isEmpty)
+            }
         }
     }
     
