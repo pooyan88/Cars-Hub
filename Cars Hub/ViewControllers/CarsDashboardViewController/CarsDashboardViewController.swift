@@ -197,26 +197,26 @@ extension CarsDashboardViewController {
     private func setupChangeOilHelperLabel() {
         changeEngineOilHelperLabel.textColor = .white
         changeEngineOilHelperLabel.textAlignment = .left
-        changeEngineOilHelperLabel.text = viewModel.car.userCarDetails?.engineOilHelperDescription
+        changeEngineOilHelperLabel.text = viewModel.car.userCarDetails?.engineOilHelperDescription ?? "..."
     }
     
     private func setupChangeTransmissionHelperLabel() {
         changeTransmissionHelperLabel.textColor = .white
         changeTransmissionHelperLabel.textAlignment = .left
-        changeTransmissionHelperLabel.text = viewModel.car.userCarDetails?.transmissionOilHelperDescription
+        changeTransmissionHelperLabel.text = viewModel.car.userCarDetails?.transmissionOilHelperDescription ?? "..."
     }
     
     private func setupChangeTimingBeltHelperLabel() {
         timingBeltHelperLabel.textColor = .white
         timingBeltHelperLabel.textAlignment = .left
-        timingBeltHelperLabel.text = viewModel.car.userCarDetails?.timingBeltReplacementHelperDescription
+        timingBeltHelperLabel.text = viewModel.car.userCarDetails?.timingBeltReplacementHelperDescription ?? "..."
     }
     
     private func setupNextServiceHelperLabel() {
         nextServiceHelperLabel.textColor = .white
         nextServiceHelperLabel.textAlignment = .left
         nextServiceHelperLabel.numberOfLines = 0
-        nextServiceHelperLabel.text = viewModel.car.userCarDetails?.nextServiceHelperDescription
+        nextServiceHelperLabel.text = viewModel.car.userCarDetails?.nextServiceHelperDescription ?? "..."
     }
     
     
@@ -312,16 +312,7 @@ extension CarsDashboardViewController {
 extension CarsDashboardViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-//        if DataManager.shared.loadCars() == nil {
-//            if viewModel.car.items.isEmpty {
-//                return 0
-//            } else {
-//                return viewModel.car.items.count
-//            }
-//        } else {
-//            return DataManager.shared.loadCars()?.count ?? 0
-//        }
-        return viewModel.car.items.count 
+        return viewModel.car.items.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

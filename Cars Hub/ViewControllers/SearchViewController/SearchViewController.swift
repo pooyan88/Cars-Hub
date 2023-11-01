@@ -80,12 +80,14 @@ extension SearchViewController {
     
     private func getAllMakers(completions: @escaping ([CarData])-> Void) {
         setupLoadingIndicator(isAnimating: true)
+        searchButton.isEnabled = false
         NetworkRequests.shared.getAllMakes { [weak self] response in
             DispatchQueue.main.async {
             self?.setupLoadingIndicator(isAnimating: false)
             guard let self else { return }
                 switch response {
                 case .success(let data):
+                    self.searchButton.isEnabled = true
                     completions(data)
                 case .failure(let error):
                     completions([])
