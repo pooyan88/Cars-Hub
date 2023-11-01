@@ -13,7 +13,7 @@ class CustomBannerManager {
     
     private init() { }
     
-    func showBanner(message: String, inView view: UIView) {
+    func showBanner(message: String, inView view: UIWindow) {
         if !view.subviews.filter({$0.tag == 123456789}).isEmpty { return }
         let banner = CustomBannerView(message: message)
         banner.tag = 123456789
@@ -26,9 +26,9 @@ class CustomBannerManager {
             banner.topAnchor.constraint(equalTo: view.topAnchor, constant: 20.0),
             banner.heightAnchor.constraint(equalToConstant: height)
         ])
-        
         banner.layer.position.y = -height
         view.layoutIfNeeded()
+        view.bringSubviewToFront(banner)
         UIView.animate(withDuration: 1, delay: 0, usingSpringWithDamping: 0.5, initialSpringVelocity: 0.5) {
             banner.layer.position.y = 0
             view.layoutIfNeeded()

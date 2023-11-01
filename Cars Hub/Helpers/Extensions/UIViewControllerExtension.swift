@@ -13,11 +13,10 @@ extension UIViewController {
         case main = "Main"
     }
     
-    
-    static func instantiate<T: UIViewController>(appStoryboard: StoryboardName) -> T {
+    static func instantiate(appStoryboard: StoryboardName) -> Self {
         let storyboard = UIStoryboard(name: appStoryboard.rawValue, bundle: nil)
         let identifier = String(describing: self)
-        return storyboard.instantiateViewController(withIdentifier: identifier) as! T
+        return storyboard.instantiateViewController(withIdentifier: identifier) as! Self 
     }
     
     func hideKeyboardWhenTappedAround() {

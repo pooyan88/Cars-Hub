@@ -25,6 +25,10 @@ struct CarData: Codable {
     let coolant: String?
     let horspower: String?
     let torque: String?
+    var userCarDetails: CarDetails?
+    var fullName: String {
+        return (companyName ?? "") + " " + (carName ?? "")
+    }
     
     var items: [(title: String, value: String)] {
         var temp: [(title: String, value: String)] = []

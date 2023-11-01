@@ -18,18 +18,37 @@ class MainCoordinator: Coordinator {
     var navigationController = UINavigationController()
 
     func startCoordinator() {
-        let initialVC: CarsDashboardViewController = CarsDashboardViewController.instantiate(appStoryboard: .main)
-        initialVC.coordinator = self
-        navigationController.navigationBar.prefersLargeTitles = true
-        navigationController.pushViewController(initialVC, animated: false)
+        if DataManager.shared.loadCars() == nil {
+            showSearchViewController()
+        } else {
+            showUserCarListViewController()
+        }
     }
     
-    func gotoCarsListViewController(with carsData: [CarData], delegate: CarsListViewControllerDelegate) {
+     func showSearchViewController() {
+        let searchVC = SearchViewController.instantiate(appStoryboard: .main)
+        searchVC.coordinator = self
+        navigationController.navigationBar.prefersLargeTitles = true
+        navigationController.setViewControllers([searchVC], animated: true)
+    }
+    
+     func showUserCarListViewController() {
+        let carListVC = UserCarsListViewController.instantiate(appStoryboard: .main)
+        carListVC.coordinator = self
+        navigationController.setViewControllers([carListVC], animated: true)
+    }
+    
+    func gotoCarsListViewController(with carsData: [CarData]) {
         let vc: CarsListViewController = CarsListViewController.instantiate(appStoryboard: .main)
         vc.coordinator = self
         vc.carsData = carsData
-        vc.delegate = delegate
         navigationController.pushViewController(vc, animated: true)
+    }
+    
+    func gotoCarDashboardViewController(selectedCar: CarData) {
+        let vc = CarsDashboardViewController.instantiate(appStoryboard: .main)
+        navigationController.pushViewController(vc, animated: true)
+        vc.configViewModel(car: selectedCar)
     }
     
     func popViewController(animated: Bool = true) {

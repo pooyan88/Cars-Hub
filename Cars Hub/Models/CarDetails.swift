@@ -17,5 +17,4 @@ struct CarDetails: Codable {
     var transmissionOilHelperDescription: String?
     var timingBeltReplacementHelperDescription: String?
     var nextServiceHelperDescription: String?
-    var carInfo: CarData?
 }

@@ -11,18 +11,30 @@ class DataManager {
     
     static let shared = DataManager()
     
-    
-    func saveCarDetails(details: CarDetails) {
-        let encodedData = try? JSONEncoder().encode(details)
-        UserDefaults.standard.set(encodedData, forKey: "details")
+    func saveCars(cars: [CarData]) {
+        let encodedData = try? JSONEncoder().encode(cars)
+        UserDefaults.standard.set(encodedData, forKey: "cars")
     }
     
-    func loadCarDetails()-> CarDetails? {
-        if let data = UserDefaults.standard.data(forKey: "details") {
-            if let decodedData = try? JSONDecoder().decode(CarDetails.self, from: data) {
+    func loadCars()-> [CarData]? {
+        if let data = UserDefaults.standard.data(forKey: "cars") {
+            if let decodedData = try? JSONDecoder().decode([CarData].self, from: data) {
                 return decodedData
             }
         }
         return nil
+    }
+    
+    func saveCar(car: CarData) {
+        var cars = loadCars() ?? []
+//        if cars.contains(where: { carItem in return car.fullName == carItem.fullName }) {
+//            
+//        }
+        if let index = cars.firstIndex(where: { $0.fullName == car.fullName }) {
+            cars[index] = car
+        } else {
+            cars.append(car)
+        }
+        saveCars(cars: cars)
     }
 }

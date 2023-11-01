@@ -7,16 +7,11 @@
 
 import UIKit
 
-protocol CarsListViewControllerDelegate {
-    func passCarDetails(car: CarData)
-}
-
 class CarsListViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var searchBar: UISearchBar!
     
-    var delegate: CarsListViewControllerDelegate?
     var coordinator: MainCoordinator?
     var carsData: [CarData] = [] {
         didSet {
@@ -86,8 +81,7 @@ extension CarsListViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        delegate?.passCarDetails(car: carsData[indexPath.row])
-        coordinator?.popViewController(animated: true)
+        coordinator?.gotoCarDashboardViewController(selectedCar: carsData[indexPath.row])
     }
 }
 
