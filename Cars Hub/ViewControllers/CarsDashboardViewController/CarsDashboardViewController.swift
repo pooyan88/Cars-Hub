@@ -238,15 +238,9 @@ extension CarsDashboardViewController {
     @objc func segmentedControlChanged(_ sender: UISegmentedControl) {
         switch sender.selectedSegmentIndex {
         case 0:
-            UIView.animate(withDuration: 0.5) { [weak self] in
-                guard let self else { return }
-                scrollView.contentOffset.x = view.bounds.minX
-            }
+            showCarDetailsView()
         case 1:
-            UIView.animate(withDuration: 0.5) { [weak self] in
-                guard let self else { return }
-                scrollView.contentOffset.x = view.bounds.maxX
-            }
+            showUserDetailsView()
         default:
             print("def")
         }
@@ -289,6 +283,20 @@ extension CarsDashboardViewController {
     private func showSaveGuideAlert() {
         if let text = lastServiceMilageTextField.text, text.isEmpty {
             AlertManager.shared.showAlert(alertTitle: "Warning", alertDescription: "To save your information, you must fill all of the required fields", alertConfirmationButtonTitle: "OK", view: self)
+        }
+    }
+    
+    private func showCarDetailsView() {
+        UIView.animate(withDuration: 0.5) { [weak self] in
+            guard let self else { return }
+            scrollView.contentOffset.x = view.bounds.minX
+        }
+    }
+    
+    private func showUserDetailsView() {
+        UIView.animate(withDuration: 0.5) { [weak self] in
+            guard let self else { return }
+            scrollView.contentOffset.x = view.bounds.maxX
         }
     }
 }
