@@ -33,7 +33,7 @@ class CustomBannerManager {
             banner.layer.position.y = height
             view.layoutIfNeeded()
         } completion: { _ in
-            UIView.animate(withDuration: 0.3) {
+            UIView.animate(withDuration: 0.5) {
                 banner.layer.position.y = -height
                 view.layoutIfNeeded()
             } completion: { _ in

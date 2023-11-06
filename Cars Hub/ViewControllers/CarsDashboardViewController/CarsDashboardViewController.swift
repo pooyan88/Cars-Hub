@@ -71,6 +71,7 @@ extension CarsDashboardViewController {
     }
     
     private func setupViews() {
+        overrideUserInterfaceStyle = .dark
         setupSegmentControl()
         setupScrollView()
         navigationItem.largeTitleDisplayMode = .never
@@ -265,24 +266,9 @@ extension CarsDashboardViewController {
         return cell
     }
     
-    private func updateLabelsWhenTextFieldsAreEmpty(textField: UITextField) {
-        if textField == engineOilInputTextField && textField.text?.count == 0 {
-            changeEngineOilHelperLabel.text = "..."
-        }
-        if textField == transmissionOilInputTextField && textField.text?.count == 0 {
-            changeTransmissionHelperLabel.text = "..."
-        }
-        if textField == lastServiceMilageTextField && textField.text?.count == 0 {
-            nextServiceHelperLabel.text = "..."
-        }
-        if textField == timingBeltInputTextField && textField.text?.count == 0 {
-            timingBeltHelperLabel.text = "..."
-        }
-    }
-    
     private func showSaveGuideAlert() {
         if let text = lastServiceMilageTextField.text, text.isEmpty {
-            AlertManager.shared.showAlert(alertTitle: "Warning", alertDescription: "To save your information, you must fill all of the required fields", alertConfirmationButtonTitle: "OK", view: self)
+            AlertManager.shared.showAlert(alertTitle: "Warning", alertDescription: "To save your informations, you have to fill all of the required fields", alertConfirmationButtonTitle: "OK", view: self)
         }
     }
     

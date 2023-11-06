@@ -27,6 +27,7 @@
 		E05608422AC41948008ED041 /* Cars_HubTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E05608412AC41948008ED041 /* Cars_HubTests.swift */; };
 		E056084C2AC41948008ED041 /* Cars_HubUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E056084B2AC41948008ED041 /* Cars_HubUITests.swift */; };
 		E056084E2AC41948008ED041 /* Cars_HubUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E056084D2AC41948008ED041 /* Cars_HubUITestsLaunchTests.swift */; };
+		E063C1352AF9170200B75443 /* CarsDashboardViewController_tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E063C1342AF9170200B75443 /* CarsDashboardViewController_tests.swift */; };
 		E07A26692AED29DA00F9A9CD /* UserCarsListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E07A26682AED29DA00F9A9CD /* UserCarsListViewController.swift */; };
 		E08E245B2AE54035005886D1 /* CustomBannerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E08E245A2AE54035005886D1 /* CustomBannerView.swift */; };
 		E08E245D2AE54057005886D1 /* CustomBannerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E08E245C2AE54057005886D1 /* CustomBannerManager.swift */; };
@@ -40,6 +41,7 @@
 		E0A45D6A2AC41C39007F4BA8 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0A45D692AC41C39007F4BA8 /* Coordinator.swift */; };
 		E0A45D6D2AC41F1A007F4BA8 /* CarData.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0A45D6C2AC41F1A007F4BA8 /* CarData.swift */; };
 		E0A4D0962AE675B4003D1626 /* CarDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0A4D0952AE675B4003D1626 /* CarDetails.swift */; };
+		E0A57DD52AF901F400D99BC0 /* CalculateHelper_tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0A57DD42AF901F400D99BC0 /* CalculateHelper_tests.swift */; };
 		E0C697FC2AEE63CA00A9A91E /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0C697FB2AEE63CA00A9A91E /* SearchViewController.swift */; };
 		E0EB03592AD14D3600B103BC /* CarDetailsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0EB03572AD14D3600B103BC /* CarDetailsTableViewCell.swift */; };
 		E0EB035A2AD14D3600B103BC /* CarDetailsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E0EB03582AD14D3600B103BC /* CarDetailsTableViewCell.xib */; };
@@ -88,6 +90,7 @@
 		E05608472AC41948008ED041 /* Cars HubUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Cars HubUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E056084B2AC41948008ED041 /* Cars_HubUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cars_HubUITests.swift; sourceTree = "<group>"; };
 		E056084D2AC41948008ED041 /* Cars_HubUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cars_HubUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		E063C1342AF9170200B75443 /* CarsDashboardViewController_tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarsDashboardViewController_tests.swift; sourceTree = "<group>"; };
 		E07A26682AED29DA00F9A9CD /* UserCarsListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCarsListViewController.swift; sourceTree = "<group>"; };
 		E08E245A2AE54035005886D1 /* CustomBannerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomBannerView.swift; sourceTree = "<group>"; };
 		E08E245C2AE54057005886D1 /* CustomBannerManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomBannerManager.swift; sourceTree = "<group>"; };
@@ -101,6 +104,7 @@
 		E0A45D692AC41C39007F4BA8 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		E0A45D6C2AC41F1A007F4BA8 /* CarData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarData.swift; sourceTree = "<group>"; };
 		E0A4D0952AE675B4003D1626 /* CarDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarDetails.swift; sourceTree = "<group>"; };
+		E0A57DD42AF901F400D99BC0 /* CalculateHelper_tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculateHelper_tests.swift; sourceTree = "<group>"; };
 		E0C697FB2AEE63CA00A9A91E /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		E0EB03572AD14D3600B103BC /* CarDetailsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarDetailsTableViewCell.swift; sourceTree = "<group>"; };
 		E0EB03582AD14D3600B103BC /* CarDetailsTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CarDetailsTableViewCell.xib; sourceTree = "<group>"; };
@@ -204,6 +208,8 @@
 			isa = PBXGroup;
 			children = (
 				E05608412AC41948008ED041 /* Cars_HubTests.swift */,
+				E0A57DD42AF901F400D99BC0 /* CalculateHelper_tests.swift */,
+				E063C1342AF9170200B75443 /* CarsDashboardViewController_tests.swift */,
 			);
 			path = "Cars HubTests";
 			sourceTree = "<group>";
@@ -220,10 +226,10 @@
 		E056085A2AC41955008ED041 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				E0A57DD32AF8FFBD00D99BC0 /* CarList */,
 				E0C697FA2AEE63B200A9A91E /* SearchViewController */,
 				E07A26672AED29B900F9A9CD /* UserCarsListViewController */,
 				E04F31972AC9A02A00959600 /* CarsDashboardViewController */,
-				E00D2D9C2AC813170037AB1F /* CarsListViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -321,6 +327,14 @@
 				E0EB03552AD14D0200B103BC /* CarsListTableViewCell */,
 			);
 			path = CustomCells;
+			sourceTree = "<group>";
+		};
+		E0A57DD32AF8FFBD00D99BC0 /* CarList */ = {
+			isa = PBXGroup;
+			children = (
+				E00D2D9C2AC813170037AB1F /* CarsListViewController.swift */,
+			);
+			path = CarList;
 			sourceTree = "<group>";
 		};
 		E0C697FA2AEE63B200A9A91E /* SearchViewController */ = {
@@ -562,6 +576,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E063C1352AF9170200B75443 /* CarsDashboardViewController_tests.swift in Sources */,
+				E0A57DD52AF901F400D99BC0 /* CalculateHelper_tests.swift in Sources */,
 				E05608422AC41948008ED041 /* Cars_HubTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

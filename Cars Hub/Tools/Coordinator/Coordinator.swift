@@ -28,7 +28,6 @@ class MainCoordinator: Coordinator {
      func showSearchViewController() {
         let searchVC = SearchViewController.instantiate(appStoryboard: .main)
         searchVC.coordinator = self
-        navigationController.navigationBar.prefersLargeTitles = true
         navigationController.setViewControllers([searchVC], animated: true)
     }
     
