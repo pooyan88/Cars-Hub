@@ -99,7 +99,9 @@ extension CarsDashboardViewModel {
     }
     
     private func updateTimingBeltReplacementHelper() {
-        if isTimeBeltFieldValid() {
+        if timeBeltText.isEmpty {
+            updateTimingBeltReplacementDescription("...")
+        } else if isTimeBeltFieldValid() {
             updateTimingBeltReplacementDescription(getTimingBeltReplacementDescription())
         } else {
             updateTimingBeltReplacementDescription("invalid input!")
@@ -107,7 +109,9 @@ extension CarsDashboardViewModel {
     }
     
     private func updateTransmissionOilChangeHelper() {
-        if isTransmissionOilFieldValid() {
+        if transmissionOilMilageText.isEmpty {
+            updateTransmissionOilChangeDescription("...")
+        } else if isTransmissionOilFieldValid() {
             updateTransmissionOilChangeDescription(getTransmissionOilDescription())
         } else {
             updateTransmissionOilChangeDescription("invalid input!")
@@ -115,7 +119,9 @@ extension CarsDashboardViewModel {
     }
     
     private func updateLastServiceHelper() {
-        if isLastServiceFieldValid() {
+        if lastServiceMilageText.isEmpty {
+            updateNextServiceDescription("...")
+        } else if isLastServiceFieldValid() {
             updateNextServiceDescription(getNextServiceDescription())
         } else {
             updateNextServiceDescription("invalid input!")
@@ -123,7 +129,9 @@ extension CarsDashboardViewModel {
     }
     
     private func updateEngineOilHelper() {
-        if isEngineOilFieldValid() {
+        if engineOilMilageText.isEmpty {
+            updateEngineOilChangeDescription("...")
+        } else if isEngineOilFieldValid() {
             updateEngineOilChangeDescription(getEngineOilDescription())
         } else {
             updateEngineOilChangeDescription("invalid input!")
@@ -270,70 +278,6 @@ extension CarsDashboardViewModel {
 
 //MARK: - Retrieve User Data
 extension CarsDashboardViewModel {
-    
-    func getCurrentMilageText()-> String {
-        if let milage = car.userCarDetails?.currentMilage {
-            return milage
-        }
-        return ""
-    }
-    
-    func getLastEngineOilServiceMilageText()-> String {
-        if let lastOilServiceMilage = car.userCarDetails?.lastEngineOilChangeMilage {
-            return lastOilServiceMilage
-        }
-        return ""
-    }
-    
-    func getLastTransmissionOilServiceMilageText()-> String {
-        if let lastTransmissionOilServiceMilage = car.userCarDetails?.lastTransmissionMilage {
-            return lastTransmissionOilServiceMilage
-        }
-        return ""
-    }
-    
-    func getLastTimingBeltReplacementMilageText()-> String {
-        if let lastTimingBeltReplacementMilage = car.userCarDetails?.lastTimingBeltReplacementMilage {
-            return lastTimingBeltReplacementMilage
-        }
-        return ""
-    }
-    
-    func getLastServiceMilageText()-> String {
-        if let lastServiceMilage = car.userCarDetails?.lastServiceMilage {
-            return lastServiceMilage
-        }
-        return ""
-    }
-    
-    func getChangeOilHelperText()-> String {
-        if let changeOilHelperText = car.userCarDetails?.engineOilHelperDescription {
-            return changeOilHelperText
-        }
-        return "..."
-    }
-    
-    func getChangeTransmissionOilHelperText()-> String {
-        if let transmissionOilHelperText = car.userCarDetails?.transmissionOilHelperDescription {
-            return transmissionOilHelperText
-        }
-        return "..."
-    }
-    
-    func getTimingBeltHelperText()-> String {
-        if let timingBeltReplacementHelperText = car.userCarDetails?.timingBeltReplacementHelperDescription {
-            return timingBeltReplacementHelperText
-        }
-        return "..."
-    }
-    
-    func getNextServiceHelperText()-> String {
-        
-        if let nextServiceHelperText = car.userCarDetails?.nextServiceHelperDescription {
-            return nextServiceHelperText
-        }
-        return "..."
-    }
     
     func setupNavigationItemTitle() {
         setupNavigationBarTitle(car.fullName)
