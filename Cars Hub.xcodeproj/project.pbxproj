@@ -14,6 +14,7 @@
 		E00D2DA02AC8141E0037AB1F /* CarsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E00D2D9E2AC8141E0037AB1F /* CarsTableViewCell.swift */; };
 		E00D2DA12AC8141E0037AB1F /* CarsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E00D2D9F2AC8141E0037AB1F /* CarsTableViewCell.xib */; };
 		E00D2DA32AC823A90037AB1F /* TableViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E00D2DA22AC823A90037AB1F /* TableViewExtension.swift */; };
+		E011D6422AF92D6300C0EFE0 /* SearchViewController_tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E011D6412AF92D6300C0EFE0 /* SearchViewController_tests.swift */; };
 		E03542A02AD2957F002B9286 /* CalculateHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = E035429F2AD2957F002B9286 /* CalculateHelper.swift */; };
 		E03542A22AD2AD90002B9286 /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E03542A12AD2AD90002B9286 /* StringExtension.swift */; };
 		E03542A42AD2B769002B9286 /* Int Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E03542A32AD2B769002B9286 /* Int Extension.swift */; };
@@ -73,6 +74,7 @@
 		E00D2D9E2AC8141E0037AB1F /* CarsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarsTableViewCell.swift; sourceTree = "<group>"; };
 		E00D2D9F2AC8141E0037AB1F /* CarsTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CarsTableViewCell.xib; sourceTree = "<group>"; };
 		E00D2DA22AC823A90037AB1F /* TableViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewExtension.swift; sourceTree = "<group>"; };
+		E011D6412AF92D6300C0EFE0 /* SearchViewController_tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController_tests.swift; sourceTree = "<group>"; };
 		E035429F2AD2957F002B9286 /* CalculateHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculateHelper.swift; sourceTree = "<group>"; };
 		E03542A12AD2AD90002B9286 /* StringExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtension.swift; sourceTree = "<group>"; };
 		E03542A32AD2B769002B9286 /* Int Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Int Extension.swift"; sourceTree = "<group>"; };
@@ -210,6 +212,7 @@
 				E05608412AC41948008ED041 /* Cars_HubTests.swift */,
 				E0A57DD42AF901F400D99BC0 /* CalculateHelper_tests.swift */,
 				E063C1342AF9170200B75443 /* CarsDashboardViewController_tests.swift */,
+				E011D6412AF92D6300C0EFE0 /* SearchViewController_tests.swift */,
 			);
 			path = "Cars HubTests";
 			sourceTree = "<group>";
@@ -576,6 +579,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E011D6422AF92D6300C0EFE0 /* SearchViewController_tests.swift in Sources */,
 				E063C1352AF9170200B75443 /* CarsDashboardViewController_tests.swift in Sources */,
 				E0A57DD52AF901F400D99BC0 /* CalculateHelper_tests.swift in Sources */,
 				E05608422AC41948008ED041 /* Cars_HubTests.swift in Sources */,

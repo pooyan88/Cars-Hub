@@ -83,6 +83,6 @@ extension CarsListViewController: UITableViewDelegate, UITableViewDataSource {
 extension CarsListViewController: UISearchBarDelegate {
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        filteredCarMakes = carsData.filter({($0.companyName?.lowercased() ?? "" + "-" + ($0.carName?.lowercased() ?? "?")).contains(searchText.lowercased())})
+        filteredCarMakes = carsData.filter(({($0.fullName.lowercased()).contains(searchText.lowercased())}))
     }
 }
