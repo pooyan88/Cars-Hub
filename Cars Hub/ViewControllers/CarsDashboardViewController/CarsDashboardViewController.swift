@@ -36,6 +36,7 @@ final class CarsDashboardViewController: UIViewController {
         hideKeyboardWhenTappedAround()
         viewModel.setupNavigationItemTitle()
         viewModel.setupSegmentControlHidden()
+        showSaveGuideAlert()
     }
 }
 
@@ -276,6 +277,12 @@ extension CarsDashboardViewController {
         }
         if textField == timingBeltInputTextField && textField.text?.count == 0 {
             timingBeltHelperLabel.text = "..."
+        }
+    }
+    
+    private func showSaveGuideAlert() {
+        if let text = lastServiceMilageTextField.text, text.isEmpty {
+            AlertManager.shared.showAlert(alertTitle: "Warning", alertDescription: "To save your information, you must fill in all the required fields", alertConfirmationButtonTitle: "OK", view: self)
         }
     }
 }

@@ -65,10 +65,6 @@ extension SearchViewController {
     }
 }
 
-//MARK: - Action
-extension SearchViewController {
-}
-
 //MARK: - API Calls
 extension SearchViewController {
     

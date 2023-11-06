@@ -30,7 +30,7 @@ class CustomBannerManager {
         view.layoutIfNeeded()
         view.bringSubviewToFront(banner)
         UIView.animate(withDuration: 1, delay: 0, usingSpringWithDamping: 0.5, initialSpringVelocity: 0.5) {
-            banner.layer.position.y = 0
+            banner.layer.position.y = height
             view.layoutIfNeeded()
         } completion: { _ in
             UIView.animate(withDuration: 0.3) {

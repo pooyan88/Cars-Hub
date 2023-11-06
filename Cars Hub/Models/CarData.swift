@@ -26,6 +26,7 @@ struct CarData: Codable {
     let horspower: String?
     let torque: String?
     var userCarDetails: CarDetails?
+    var isSaved: Bool = false
     var fullName: String {
         return (companyName ?? "") + " " + (carName ?? "")
     }

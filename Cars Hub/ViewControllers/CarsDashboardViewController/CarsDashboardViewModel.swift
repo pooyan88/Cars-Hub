@@ -19,7 +19,7 @@ class CarsDashboardViewModel {
     private var setupNavigationBarTitle: (_ text: String)-> Void
     private var showBanner: (_ text: String)-> Void
     
-    var car: CarData
+    var car: CarData 
     var timeBeltText = ""
     var engineOilMilageText = ""
     var transmissionOilMilageText = ""
@@ -27,7 +27,7 @@ class CarsDashboardViewModel {
     var currentMilageText = "" {
         didSet {
             if !isMillageValid() {
-                showBanner("current milage has to be greater than other fields")
+                showBanner("current milage has to be greater than others")
             }
         }
     }
@@ -92,32 +92,48 @@ extension CarsDashboardViewModel {
 extension CarsDashboardViewModel {
     
     func updateSummaryLabel() {
+        updateTimingBeltReplacementHelper()
+        updateTransmissionOilChangeHelper()
+        updateLastServiceHelper()
+        updateEngineOilHelper()
+    }
+    
+    private func updateTimingBeltReplacementHelper() {
         if isTimeBeltFieldValid() {
             updateTimingBeltReplacementDescription(getTimingBeltReplacementDescription())
         } else {
-            updateTimingBeltReplacementDescription("wrong input")
+            updateTimingBeltReplacementDescription("invalid input!")
         }
+    }
+    
+    private func updateTransmissionOilChangeHelper() {
         if isTransmissionOilFieldValid() {
             updateTransmissionOilChangeDescription(getTransmissionOilDescription())
         } else {
-            updateTransmissionOilChangeDescription("wrong input")
+            updateTransmissionOilChangeDescription("invalid input!")
         }
+    }
+    
+    private func updateLastServiceHelper() {
         if isLastServiceFieldValid() {
             updateNextServiceDescription(getNextServiceDescription())
         } else {
-            updateNextServiceDescription("wrong input")
+            updateNextServiceDescription("invalid input!")
         }
+    }
+    
+    private func updateEngineOilHelper() {
         if isEngineOilFieldValid() {
             updateEngineOilChangeDescription(getEngineOilDescription())
         } else {
-            updateEngineOilChangeDescription("wrong input")
+            updateEngineOilChangeDescription("invalid input!")
         }
     }
     
     func setData() {
         if isAllFieldsValid() {
             let userCarDetails = CarDetails(currentMilage: currentMilageText, lastEngineOilChangeMilage: engineOilMilageText, lastTransmissionMilage: transmissionOilMilageText, lastTimingBeltReplacementMilage: timeBeltText, lastServiceMilage: lastServiceMilageText, engineOilHelperDescription: getEngineOilDescription(), transmissionOilHelperDescription: getTransmissionOilDescription(), timingBeltReplacementHelperDescription: getTimingBeltReplacementDescription(), nextServiceHelperDescription: getNextServiceDescription())
-            let carInfo = CarData(id: car.id, carName: car.carName, companyName: car.companyName, oilChange: car.oilChange, timingBeltReplacement: car.timingBeltReplacement, tirePressure: car.tirePressure, sparkReplacement: car.sparkReplacement, fuelFilterReplacement: car.fuelFilterReplacement, oilFilterReplacement: car.oilFilterReplacement, intakeFilterReplacement: car.intakeFilterReplacement, cabinFilterReplacement: car.cabinFilterReplacement, transmissionOil: car.transmissionOil, breakingOil: car.breakingOil, coolant: car.coolant, horspower: car.horspower, torque: car.torque, userCarDetails: userCarDetails)
+            let carInfo = CarData(id: car.id, carName: car.carName, companyName: car.companyName, oilChange: car.oilChange, timingBeltReplacement: car.timingBeltReplacement, tirePressure: car.tirePressure, sparkReplacement: car.sparkReplacement, fuelFilterReplacement: car.fuelFilterReplacement, oilFilterReplacement: car.oilFilterReplacement, intakeFilterReplacement: car.intakeFilterReplacement, cabinFilterReplacement: car.cabinFilterReplacement, transmissionOil: car.transmissionOil, breakingOil: car.breakingOil, coolant: car.coolant, horspower: car.horspower, torque: car.torque, userCarDetails: userCarDetails, isSaved: true)
             saveData(car: carInfo)
         }
     }
@@ -228,23 +244,27 @@ extension CarsDashboardViewModel {
     }
     
     private func isAllFieldsValid() -> Bool {
-        return isTimeBeltFieldValid() && isEngineOilFieldValid() && isTransmissionOilFieldValid() && isLastServiceFieldValid()
+        return isTimeBeltFieldValid() && isEngineOilFieldValid() && isTransmissionOilFieldValid() && isLastServiceFieldValid() && isMillageValid()
     }
     
     private func isTimeBeltFieldValid()-> Bool {
-        return timeBeltText.count >= 4
+        guard let intTimeBeltMilage = Int(timeBeltText) else { return false}
+        return timeBeltText.count >= 4 && intTimeBeltMilage < currentMiles
     }
     
     private func isEngineOilFieldValid()-> Bool {
-        return engineOilMilageText.count >= 4
+        guard let intEngineOilMilage = Int(engineOilMilageText) else { return false }
+        return engineOilMilageText.count >= 4 && intEngineOilMilage < currentMiles
     }
     
     private func isTransmissionOilFieldValid()-> Bool {
-        return transmissionOilMilageText.count >= 4
+        guard let intTransmissionOilMilage = Int(transmissionOilMilageText) else { return false }
+        return transmissionOilMilageText.count >= 3 && intTransmissionOilMilage < currentMiles
     }
     
     private func isLastServiceFieldValid()-> Bool {
-        return lastServiceMilageText.count >= 4
+        guard let intLastServiceMilage = Int(lastServiceMilageText) else { return false}
+        return lastServiceMilageText.count >= 3 && intLastServiceMilage < currentMiles
     }
 }
 

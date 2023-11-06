@@ -61,12 +61,6 @@ extension CarsListViewController {
     }
 }
 
-//MARK: - Actions
-extension CarsListViewController {
-    
-
-}
-
 //MARK: - TableView Functions
 extension CarsListViewController: UITableViewDelegate, UITableViewDataSource {
     
